@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive | EverMotion Project Telemetry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="archive-page">
+
+    <div class="ambient-glow glow-purple"></div>
+    <div class="ambient-glow glow-green"></div>
+
+    <nav class="navbar-minimal">
+        <div class="nav-container">
+            <a href="index.html" class="back-link">
+                <span class="arrow">←</span> Back to Terminal
+            </a>
+            <div class="nav-brand-minimal">EverMotion // Archive</div>
+        </div>
+    </nav>
+
+    <main class="archive-viewport">
+        <header class="archive-intro">
+            <h1 class="archive-main-title">Project <span class="gradient-text">Telemetry</span></h1>
+            <p class="archive-desc">The centralized secure hub for official FYP documentation, development logs, and clinical research data.</p>
+        </header>
+
+       <div class="archive-stack">
+    <div class="archive-module" id="minutes-module">
+        <div class="module-trigger" onclick="toggleModule('minutes')">
+            <div class="module-visual">📂</div>
+            <div class="module-info">
+                <h3>Meeting Minutes</h3>
+                <p>Weekly strategic alignment with Team EchoCare & Supervisor.</p>
+            </div>
+            <div class="module-meta">
+                <span class="status-pill active">Updated Week 2</span>
+                <div class="expand-chevron">↓</div>
+            </div>
+        </div>
+        <div class="module-content">
+            <div class="doc-item-row">
+                <div class="doc-name">Week 1: Vision & Tech Stack Finalization</div>
+                <a href="#" class="doc-action">Download PDF ↗</a>
+            </div>
+            <div class="doc-item-row">
+                <div class="doc-name">Week 2: MediaPipe Feasibility & Design Review</div>
+                <a href="#" class="doc-action">Download PDF ↗</a>
+            </div>
+            <div class="doc-item-row placeholder" style="opacity: 0.5;">
+                <div class="doc-name">Week 3: In Progress...</div>
+                <span class="tag-pending">Awaiting Sync</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="archive-module" id="gantt-module">
+        <div class="module-trigger" onclick="toggleModule('gantt')">
+            <div class="module-visual">📊</div>
+            <div class="module-info">
+                <h3>Gantt Chart & Schedule</h3>
+                <p>Visualizing the development roadmap and sprint milestones.</p>
+            </div>
+            <div class="module-meta">
+                <span class="status-pill active">Sprint 01</span>
+                <div class="expand-chevron">↓</div>
+            </div>
+        </div>
+        <div class="module-content">
+            <div class="gantt-preview-box">
+                <div class="mini-timeline" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem;">
+                    <div class="t-node completed" style="color: var(--sol-green); font-weight: 800;">● Setup</div>
+                    <div class="t-line" style="flex: 1; height: 2px; background: var(--sol-green); margin: 0 10px;"></div>
+                    <div class="t-node current" style="color: var(--sol-purple); font-weight: 800;">● Design</div>
+                    <div class="t-line" style="flex: 1; height: 2px; background: rgba(255,255,255,0.1); margin: 0 10px;"></div>
+                    <div class="t-node" style="color: var(--text-muted);">○ Dev</div>
+                </div>
+                <p class="helper-text" style="margin-bottom: 1.5rem; font-size: 0.9rem;">Full schedule available for download below:</p>
+                <a href="#" class="doc-action" style="display: inline-block;">Export Gantt.xlsx ↗</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 新增的 Reflective Diaries 模块 -->
+    <div class="archive-module" id="diaries-module">
+        <div class="module-trigger" onclick="toggleModule('diaries')">
+            <div class="module-visual">📓</div>
+            <div class="module-info">
+                <h3>Reflective Diaries</h3>
+                <p>Personal insights and progress reflections from development sprints.</p>
+            </div>
+            <div class="module-meta">
+                <span class="status-pill active">Updated Daily</span>
+                <div class="expand-chevron">↓</div>
+            </div>
+        </div>
+        <div class="module-content">
+            <div class="doc-item-row">
+                <div class="doc-name">Sprint 01: Initial Setup & Planning</div>
+                <a href="#" class="doc-action">Download PDF ↗</a>
+            </div>
+            <div class="doc-item-row">
+                <div class="doc-name">Sprint 01: Design Phase Reflections</div>
+                <a href="#" class="doc-action">Download PDF ↗</a>
+            </div>
+            <div class="doc-item-row placeholder" style="opacity: 0.5;">
+                <div class="doc-name">Sprint 02: In Progress...</div>
+                <span class="tag-pending">Awaiting Entry</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <footer class="archive-footer">
+            <p>© 2026 Team EchoCare // University of Wollongong x SIM</p>
+            <div class="footer-divider"></div>
+            <p class="supervisor-credits">Supervisor: Mr Tian Sion Hui // Assessor: Mr Ee Kiam Keong</p>
+        </footer>
+    </main>
+
+    <script src="js.js"></script>
+</body>
+</html>
