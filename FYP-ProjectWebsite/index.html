@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EverMotion – Rehabilitation Through Motion & Play</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!--
+    PLACEHOLDER REFERENCE
+
+    Progress section:
+    - In Progress (line 351): Team members fill in here
+    - Next Steps (line 359): Team members fill in here
+
+    Team member profile picture placeholders:
+    - Gavin Wong Zheng Wen (line 381): GW
+    - Li Zheng Xiao (line 392): LZ
+    - Casis Channelle Alexis Alejandro (line 402): CC
+    - Jia Sheng Go (line 418): JS
+    - Fum Jun Hui (line 428): FJ
+    - Joshua Juan Budiman (line 438): JJ
+
+    Team member bio placeholders:
+    - Gavin Wong Zheng Wen (line 387): Bio coming soon...
+    - Li Zheng Xiao (line 397): Bio coming soon...
+    - Casis Channelle Alexis Alejandro (line 407): Bio coming soon...
+    - Jia Sheng Go (line 423): Bio coming soon...
+    - Fum Jun Hui (line 433): Bio coming soon...
+    - Joshua Juan Budiman (line 443): Bio coming soon...
+
+    Media section placeholders:
+    - Gameplay Video (line 473): Coming Soon
+    - Game Screenshot (line 478): Coming Soon
+    - Game Screenshot (line 483): Coming Soon
+    - Character / UI Visuals (line 488): Coming Soon
+
+    Contact section placeholders:
+    - Email (line 586): Coming soon
+    - GitHub Repository (line 591): Coming soon
+    - Game Website (line 596): Coming soon
+  -->
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-icon">&#9670;</span>
+        EverMotion
+      </a>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme">
+          <span class="theme-toggle-icon" aria-hidden="true">&#9788;</span>
+          <span class="theme-toggle-label">Light</span>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">About</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#tech">Tech Stack</a></li>
+          <li><a href="#progress">Progress</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-orb orb-1"></div>
+      <div class="hero-orb orb-2"></div>
+      <div class="hero-orb orb-3"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">FYP-26-S2-3 &bull; Team EchoCare</div>
+      <h1 class="hero-title">
+        Ever<span class="accent">Motion</span>
+      </h1>
+      <p class="hero-slogan">Rehabilitation made engaging through motion and play</p>
+      <p class="hero-desc">
+        A motion-based rehabilitation game system using real-time hand tracking and
+        game-based interaction — no specialist hardware required.
+      </p>
+      <div class="hero-cta">
+        <a href="#about" class="btn btn-primary">Explore Project</a>
+        <a href="#features" class="btn btn-ghost">See Features</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll to explore</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">About</span>
+        <h2>The Problem We're Solving</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-card problem">
+          <div class="about-card-icon">&#9888;</div>
+          <h3>The Problem</h3>
+          <p>Traditional rehabilitation exercises are repetitive and unengaging, causing users — especially elderly individuals and patients with motor impairments — to lose motivation and participate inconsistently.</p>
+        </div>
+        <div class="about-card solution">
+          <div class="about-card-icon">&#9670;</div>
+          <h3>Our Solution</h3>
+          <p>EverMotion allows users to perform rehabilitation exercises through natural hand movements using a standard webcam. By combining AI hand tracking with game mechanics, therapy becomes an engaging experience.</p>
+        </div>
+      </div>
+
+      <div class="why-matters">
+        <h3>Why It Matters</h3>
+        <div class="impact-pills">
+          <div class="pill">
+            <span class="pill-icon">&#128200;</span>
+            Improves motivation in rehabilitation
+          </div>
+          <div class="pill">
+            <span class="pill-icon">&#128100;</span>
+            Encourages consistent participation
+          </div>
+          <div class="pill">
+            <span class="pill-icon">&#128187;</span>
+            No specialised equipment needed
+          </div>
+          <div class="pill">
+            <span class="pill-icon">&#129504;</span>
+            Accessible for elderly & motor-impaired users
+          </div>
+        </div>
+      </div>
+
+      <div class="target-users">
+        <h3>Target Users</h3>
+        <div class="user-cards">
+          <div class="user-card">
+            <div class="user-icon">&#128116;</div>
+            <p>Elderly Individuals</p>
+          </div>
+          <div class="user-card">
+            <div class="user-icon">&#129687;</div>
+            <p>Stroke Recovery Patients</p>
+          </div>
+          <div class="user-card">
+            <div class="user-icon">&#127939;</div>
+            <p>Parkinson's Patients</p>
+          </div>
+          <div class="user-card">
+            <div class="user-icon">&#127973;</div>
+            <p>Care Centre Residents</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="section section-alt" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Features</span>
+        <h2>What EverMotion Offers</h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">&#128247;</div>
+          <h3>Real-Time Hand Tracking</h3>
+          <p>Uses MediaPipe via standard webcam — no gloves, controllers, or extra hardware needed.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128100;</div>
+          <h3>User Profiles & Avatars</h3>
+          <p>Personalised accounts with avatar selection so each user has their own experience.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#127919;</div>
+          <h3>Hand Calibration</h3>
+          <p>A short calibration flow adapts the game to each user's movement range and interaction ability.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128200;</div>
+          <h3>Adaptive Difficulty</h3>
+          <p>Game elements like speed and positioning adjust automatically to suit the player's ability.</p>
+        </div>
+      </div>
+
+      <div class="mini-games">
+        <h3>Mini Games</h3>
+        <div class="games-grid">
+          <div class="game-card done">
+            <div class="game-status">Prototype Done</div>
+            <div class="game-number">01</div>
+            <h4>Fruit Harvest</h4>
+            <p class="game-focus">Reaction &amp; Coordination</p>
+            <p>Catch falling fruits using hand gestures. Trains reaction time and hand-eye coordination.</p>
+          </div>
+          <div class="game-card wip">
+            <div class="game-status">Coming Soon</div>
+            <div class="game-number">02</div>
+            <h4>Controlled Motion</h4>
+            <p class="game-focus">Steady &amp; Precise Control</p>
+            <p>Guide or pour objects requiring slow, deliberate hand movements and fine motor control.</p>
+          </div>
+          <div class="game-card wip">
+            <div class="game-status">Coming Soon</div>
+            <div class="game-number">03</div>
+            <h4>Memory Match</h4>
+            <p class="game-focus">Cognitive &amp; Memory</p>
+            <p>Recall and select the correct items after visual changes — targets cognitive rehabilitation.</p>
+          </div>
+          <div class="game-card optional">
+            <div class="game-status">Optional</div>
+            <div class="game-number">&#8734;</div>
+            <h4>MegaMix Mode</h4>
+            <p class="game-focus">Combined Gameplay</p>
+            <p>All three games combined into one continuous session — the ultimate challenge mode.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TECH STACK ===== -->
+  <section class="section" id="tech">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Technology</span>
+        <h2>Under the Hood</h2>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-badge">Game Engine</div>
+          <div class="tech-name">Unity</div>
+          <p>Handles gameplay logic, UI, animations, and real-time rendering.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-badge">AI / Hand Tracking</div>
+          <div class="tech-name">MediaPipe</div>
+          <p>Real-time hand landmark detection from webcam input — no extra hardware required.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-badge">Backend / AI Processing</div>
+          <div class="tech-name">Python</div>
+          <p>Runs the MediaPipe pipeline, handles gesture processing and future model optimisation.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-badge">Game Programming</div>
+          <div class="tech-name">C#</div>
+          <p>Controls player movement, input handling, and core game logic inside Unity.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-badge">Communication</div>
+          <div class="tech-name">UDP</div>
+          <p>Low-latency real-time data transfer from Python to Unity — ideal for games.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-badge">3D & Animation</div>
+          <div class="tech-name">Blender</div>
+          <p>Character modelling, animation creation, and asset export into Unity.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-badge">Project Management</div>
+          <div class="tech-name">Taiga &amp; GitHub</div>
+          <p>Scrum sprint tracking via Taiga; continuous integration via GitHub.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-badge">Database</div>
+          <div class="tech-name">MySQL</div>
+          <p>Stores user profiles, calibration data, and session statistics.</p>
+        </div>
+      </div>
+
+      <div class="arch-diagram">
+        <h3>System Architecture</h3>
+        <div class="arch-flow">
+          <div class="arch-node">
+            <div class="arch-node-icon">&#128247;</div>
+            <div class="arch-node-label">Webcam</div>
+          </div>
+          <div class="arch-arrow">&#8594;</div>
+          <div class="arch-node highlight">
+            <div class="arch-node-icon">&#129302;</div>
+            <div class="arch-node-label">MediaPipe<br/><small>Python</small></div>
+          </div>
+          <div class="arch-arrow">&#8594;<br/><small>UDP</small></div>
+          <div class="arch-node highlight">
+            <div class="arch-node-icon">&#127918;</div>
+            <div class="arch-node-label">Unity<br/><small>C#</small></div>
+          </div>
+          <div class="arch-arrow">&#8596;</div>
+          <div class="arch-node">
+            <div class="arch-node-icon">&#128190;</div>
+            <div class="arch-node-label">MySQL<br/><small>Profiles</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROGRESS ===== -->
+  <section class="section section-alt" id="progress">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Progress</span>
+        <h2>Where We Are Now</h2>
+      </div>
+
+      <div class="progress-stage">
+        <div class="stage-label">Current Stage</div>
+        <div class="stage-value">Early Prototype Development</div>
+        <div class="stage-bar-wrap">
+          <div class="stage-bar" style="--pct: 20%"></div>
+        </div>
+        <div class="stage-markers">
+          <span class="marker active">Research</span>
+          <span class="marker active">Architecture</span>
+          <span class="marker active">Prototype</span>
+          <span class="marker">Core Dev</span>
+          <span class="marker">Testing</span>
+          <span class="marker">Final</span>
+        </div>
+      </div>
+
+      <div class="progress-columns">
+        <div class="progress-col">
+          <div class="progress-col-header done-header">
+            <span class="col-dot done-dot"></span> Completed
+          </div>
+          <ul class="progress-list">
+            <li>Research on MediaPipe and hand tracking</li>
+            <li>System architecture design</li>
+            <li>Basic Fruit Harvest prototype (gesture-controlled)</li>
+            <li>Integration of hand tracking with game via UDP</li>
+            <li>Initial research engagement with Foo Hai Rehabilitation Centre</li>
+          </ul>
+        </div>
+        <div class="progress-col">
+          <div class="progress-col-header wip-header">
+            <span class="col-dot wip-dot"></span> In Progress
+          </div>
+          <ul class="progress-list placeholder-list">
+            <li class="placeholder-item">&#8212; Team members fill in here &#8212;</li>
+          </ul>
+        </div>
+        <div class="progress-col">
+          <div class="progress-col-header next-header">
+            <span class="col-dot next-dot"></span> Next Steps
+          </div>
+          <ul class="progress-list placeholder-list">
+            <li class="placeholder-item">&#8212; Team members fill in here &#8212;</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TEAM ===== -->
+  <section class="section" id="team">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Team</span>
+        <h2>Meet Team EchoCare</h2>
+        <p class="section-sub">FYP-26-S2-3 &bull; SIM-UOW</p>
+      </div>
+
+      <div class="team-groups">
+        <div class="team-group">
+          <div class="team-group-label ai-label">AI &amp; ML Team</div>
+          <div class="team-cards">
+            <div class="team-card">
+              <div class="member-photo-wrap">
+                <div class="member-photo-placeholder">GW</div>
+                <!-- Replace above div with: <img src="assets/gavin.jpg" alt="Gavin Wong" class="member-photo" /> -->
+              </div>
+              <div class="member-info">
+                <h4>Gavin Wong Zheng Wen</h4>
+                <span class="member-role leader-role">Leader &bull; AI &amp; ML Developer</span>
+                <p class="member-bio member-bio-placeholder">Bio coming soon...</p>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="member-photo-wrap">
+                <div class="member-photo-placeholder">LZ</div>
+              </div>
+              <div class="member-info">
+                <h4>Li Zheng Xiao</h4>
+                <span class="member-role">AI &amp; ML Developer</span>
+                <p class="member-bio member-bio-placeholder">Bio coming soon...</p>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="member-photo-wrap">
+                <div class="member-photo-placeholder">CC</div>
+              </div>
+              <div class="member-info">
+                <h4>Casis Channelle Alexis Alejandro</h4>
+                <span class="member-role">AI &amp; ML Developer</span>
+                <p class="member-bio member-bio-placeholder">Bio coming soon...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-group">
+          <div class="team-group-label game-label">Game Development Team</div>
+          <div class="team-cards">
+            <div class="team-card">
+              <div class="member-photo-wrap">
+                <img src="assets/team/Jason.jpg" alt="Jia Sheng Go" class="member-photo" />
+              </div>
+              <div class="member-info">
+                <h4>Jia Sheng Go</h4>
+                <span class="member-role">Game Developer</span>
+                <p class="member-bio member-bio-placeholder">Hi guys I hope you enjoy the game!</p>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="member-photo-wrap">
+                <div class="member-photo-placeholder">FJ</div>
+              </div>
+              <div class="member-info">
+                <h4>Fum Jun Hui</h4>
+                <span class="member-role">Game Developer</span>
+                <p class="member-bio member-bio-placeholder">Bio coming soon...</p>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="member-photo-wrap">
+                <div class="member-photo-placeholder">JJ</div>
+              </div>
+              <div class="member-info">
+                <h4>Joshua Juan Budiman</h4>
+                <span class="member-role">Game Developer</span>
+                <p class="member-bio member-bio-placeholder">Bio coming soon...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="supervisor-row">
+        <div class="supervisor-card">
+          <span class="supervisor-label">Supervisor</span>
+          <span class="supervisor-name">Mr Tian Sion Hui</span>
+        </div>
+        <div class="supervisor-card">
+          <span class="supervisor-label">Assessor</span>
+          <span class="supervisor-name">Mr Ee Kiam Keong</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MEDIA ===== -->
+  <section class="section section-alt" id="media">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Media</span>
+        <h2>Screenshots &amp; Gameplay</h2>
+      </div>
+      <div class="media-grid">
+        <div class="media-placeholder">
+          <div class="media-placeholder-icon">&#127918;</div>
+          <p>Gameplay Video</p>
+          <span>Coming Soon</span>
+        </div>
+        <div class="media-placeholder">
+          <div class="media-placeholder-icon">&#128247;</div>
+          <p>Game Screenshot</p>
+          <span>Coming Soon</span>
+        </div>
+        <div class="media-placeholder">
+          <div class="media-placeholder-icon">&#128247;</div>
+          <p>Game Screenshot</p>
+          <span>Coming Soon</span>
+        </div>
+        <div class="media-placeholder">
+          <div class="media-placeholder-icon">&#127912;</div>
+          <p>Character / UI Visuals</p>
+          <span>Coming Soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FUTURE / IMPACT ===== -->
+  <section class="section" id="future">
+    <div class="container">
+      <div class="two-col-layout">
+        <div>
+          <div class="section-header left-align">
+            <span class="section-tag">Roadmap</span>
+            <h2>Future Plans</h2>
+          </div>
+          <ul class="roadmap-list">
+            <li>
+              <span class="roadmap-dot"></span>
+              <div>
+                <strong>MegaMix Mode</strong>
+                <p>Combine all three mini-games into a single continuous challenge session</p>
+              </div>
+            </li>
+            <li>
+              <span class="roadmap-dot"></span>
+              <div>
+                <strong>Improved Tracking Accuracy</strong>
+                <p>Optimise hand tracking for varied lighting and camera conditions</p>
+              </div>
+            </li>
+            <li>
+              <span class="roadmap-dot"></span>
+              <div>
+                <strong>Gesture Classification Model</strong>
+                <p>Train a dedicated ML model for more precise gesture recognition</p>
+              </div>
+            </li>
+            <li>
+              <span class="roadmap-dot"></span>
+              <div>
+                <strong>Performance Optimisation</strong>
+                <p>Reduce latency further for smoother real-time interaction</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div class="section-header left-align">
+            <span class="section-tag">Impact</span>
+            <h2>Why It Matters</h2>
+          </div>
+          <div class="impact-blocks">
+            <div class="impact-block">
+              <div class="impact-num">01</div>
+              <div>
+                <strong>Engaging Therapy</strong>
+                <p>Makes rehabilitation less repetitive and more enjoyable</p>
+              </div>
+            </div>
+            <div class="impact-block">
+              <div class="impact-num">02</div>
+              <div>
+                <strong>Accessible Without Cost</strong>
+                <p>Only requires a standard webcam — no expensive hardware</p>
+              </div>
+            </div>
+            <div class="impact-block">
+              <div class="impact-num">03</div>
+              <div>
+                <strong>Home &amp; Clinic Ready</strong>
+                <p>Can be used independently at home or in care centre settings</p>
+              </div>
+            </div>
+            <div class="impact-block">
+              <div class="impact-num">04</div>
+              <div>
+                <strong>Bridges AI + Gaming + Healthcare</strong>
+                <p>A real-world application at the intersection of three fields</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section section-alt" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Contact</span>
+        <h2>Get In Touch</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card contact-placeholder">
+          <div class="contact-icon">&#128231;</div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value placeholder-text">Coming soon</div>
+        </div>
+        <div class="contact-card contact-placeholder">
+          <div class="contact-icon">&#128187;</div>
+          <div class="contact-label">GitHub Repository</div>
+          <div class="contact-value placeholder-text">Coming soon</div>
+        </div>
+        <div class="contact-card contact-placeholder">
+          <div class="contact-icon">&#127918;</div>
+          <div class="contact-label">Game Website</div>
+          <div class="contact-value placeholder-text">Coming soon</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="logo-icon">&#9670;</span>
+          <span>EverMotion</span>
+        </div>
+        <p>A motion-based rehabilitation game by Team EchoCare &bull; FYP-26-S2-3</p>
+        <p class="footer-school">SIM Global Education &bull; University of Wollongong &bull; CSCI321</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Team EchoCare. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
