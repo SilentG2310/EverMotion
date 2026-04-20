@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EverMotion | Powered by AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="ambient-glow glow-purple"></div>
+    <div class="ambient-glow glow-green"></div>
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <div class="logo-icon"></div>
+            <span>EverMotion</span>
+        </div>
+        <div class="nav-links">
+            <a href="#vision">Vision</a>
+            <a href="#games">Ecosystem</a>
+            <a href="#team">Developers</a>
+        </div>
+        <a href="archive.html" class="btn-primary nav-btn" style="text-decoration: none;">FYP Archive</a>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Rehab built for <br><span class="gradient-text">Movement.</span></h1>
+            <p class="hero-subtitle">Powerful AI hand-tracking. Zero expensive hardware. A seamless gaming experience designed entirely for modern rehabilitation.</p>
+            <div class="hero-buttons">
+                <a href="#games" class="btn-primary massive-btn">Explore Games</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="vision" class="vision-section">
+        <div class="vision-grid">
+            <div class="vision-card">
+                <div class="card-icon-blob">✨</div>
+                <h3>Hardware Free</h3>
+                <p>Runs entirely on standard webcams utilizing advanced MediaPipe computer vision.</p>
+            </div>
+            <div class="vision-card">
+                <div class="card-icon-blob">🧠</div>
+                <h3>Adaptive AI</h3>
+                <p>Real-time calibration adjusts to the user's unique motor capabilities instantly.</p>
+            </div>
+            <div class="vision-card">
+                <div class="card-icon-blob">🏥</div>
+                <h3>Clinical Focus</h3>
+                <p>Designed alongside rehabilitation centers to ensure medically relevant gameplay.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="games" class="games-section">
+        <h2 class="section-title">The <span class="gradient-text">Ecosystem</span></h2>
+        <div class="bento-games">
+            <div class="game-card large-card expandable" id="reaction-module">
+                <div class="card-glow"></div>
+                <div class="game-content">
+                    <span class="status-badge live">v0.1 Live</span>
+                    <h3>Reaction & Coordination</h3>
+                    <p>Dynamic object interception and obstacle avoidance to rebuild neural pathways and eye-hand coordination.</p>
+                    <button class="btn-outline expand-btn" onclick="toggleGameModule('reaction')">Explore Resources ↓</button>
+                </div>
+                <div class="module-dropdown">
+                    <div class="dropdown-content">
+                        <h4>Available Resources</h4>
+                        <div class="resource-list">
+                            <a href="#" class="resource-link pdf-link">📄 Technical Documentation.pdf</a>
+                            <a href="#" class="resource-link demo-link">🎮 Live Demo</a>
+                            <a href="#" class="resource-link video-link">🎥 Gameplay Video</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="game-card large-card expandable" id="precision-module">
+                <div class="card-glow"></div>
+                <div class="game-content">
+                    <span class="status-badge live">v0.1 Live</span>
+                    <h3>Precision Control</h3>
+                    <p>Fine-tuned spatial exercises focusing on steady pouring and micro-movements.</p>
+                    <button class="btn-outline expand-btn" onclick="toggleGameModule('precision')">Explore Resources ↓</button>
+                </div>
+                <div class="module-dropdown">
+                    <div class="dropdown-content">
+                        <h4>Available Resources</h4>
+                        <div class="resource-list">
+                            <a href="#" class="resource-link pdf-link">📄 Precision Module Guide.pdf</a>
+                            <a href="#" class="resource-link demo-link">🎮 Interactive Demo</a>
+                            <a href="#" class="resource-link research-link">🔬 Research Paper</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="game-card small-card locked expandable" id="cognitive-module">
+                <div class="game-content">
+                    <span class="status-badge dev">In Dev</span>
+                    <h3>Cognitive Memory</h3>
+                    <p>Visual memory challenges combined with physical gesture responses.</p>
+                    <button class="btn-outline expand-btn" onclick="toggleGameModule('cognitive')">Coming Soon ↓</button>
+                </div>
+                <div class="module-dropdown">
+                    <div class="dropdown-content">
+                        <h4>Development Updates</h4>
+                        <div class="resource-list">
+                            <a href="#" class="resource-link roadmap-link">🗺️ Development Roadmap.pdf</a>
+                            <a href="#" class="resource-link newsletter-link">📧 Subscribe to Updates</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="game-card small-card locked expandable" id="megamix-module">
+                <div class="game-content">
+                    <span class="status-badge plan">Roadmap</span>
+                    <h3>MegaMix Mode</h3>
+                    <p>The ultimate endurance challenge combining all modules.</p>
+                    <button class="btn-outline expand-btn" onclick="toggleGameModule('megamix')">View Roadmap ↓</button>
+                </div>
+                <div class="module-dropdown">
+                    <div class="dropdown-content">
+                        <h4>Future Plans</h4>
+                        <div class="resource-list">
+                            <a href="#" class="resource-link concept-link">💡 Concept Document.pdf</a>
+                            <a href="#" class="resource-link timeline-link">⏰ Implementation Timeline</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team-section">
+        <h2 class="section-title">Core <span class="gradient-text">Contributors</span></h2>
+        <div class="team-compact-grid">
+            <div class="team-pill leader" onclick="openTeamDrawer('gavin')">
+                <div class="avatar">G</div>
+                <div class="pill-info">
+                    <h4>Gavin Wong</h4>
+                    <span>Leader / AI</span>
+                </div>
+            </div>
+            <div class="team-pill" onclick="openTeamDrawer('zhengxiao')">
+                <div class="avatar">L</div>
+                <div class="pill-info"><h4>Zheng Xiao</h4><span>AI & ML</span></div>
+            </div>
+            <div class="team-pill" onclick="openTeamDrawer('casis')">
+                <div class="avatar">C</div>
+                <div class="pill-info"><h4>Casis</h4><span>AI & ML</span></div>
+            </div>
+            <div class="team-pill" onclick="openTeamDrawer('jiasheng')">
+                <div class="avatar">J</div>
+                <div class="pill-info"><h4>Jia Sheng</h4><span>Game Dev</span></div>
+            </div>
+            <div class="team-pill" onclick="openTeamDrawer('junhui')">
+                <div class="avatar">F</div>
+                <div class="pill-info"><h4>Jun Hui</h4><span>UI/UX</span></div>
+            </div>
+            <div class="team-pill" onclick="openTeamDrawer('joshua')">
+                <div class="avatar">J</div>
+                <div class="pill-info"><h4>Joshua</h4><span>Integration</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="admin-portal-wrapper">
+        <div class="portal-cta">
+            <h2 class="portal-title">Academic & Project Logs</h2>
+            <p class="portal-text">Access meeting minutes, Gantt charts, and sprint reviews for FYP assessment.</p>
+            <div class="portal-action">
+                <a href="archive.html" class="massive-glow-btn">
+                    <span>Learn More</span>
+                    <i class="arrow-icon">↗</i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="team-drawer" class="side-drawer-container">
+        <div class="drawer-backdrop" onclick="closeTeamDrawer()"></div>
+        <div class="drawer-panel">
+            <button class="close-drawer-btn" onclick="closeTeamDrawer()">✕</button>
+            <div class="drawer-header">
+                <h2 id="drawer-name" class="gradient-text">Name</h2>
+                <h4 id="drawer-role">Role</h4>
+            </div>
+            <div class="drawer-divider"></div>
+            <div class="drawer-body">
+                <h5 class="body-label">CORE RESPONSIBILITIES</h5>
+                <ul id="drawer-tasks" class="task-list"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="js.js"></script>
+</body>
+</html>
