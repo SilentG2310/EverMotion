@@ -153,3 +153,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     window.scrollTo({ top, behavior: 'smooth' });
   });
 });
+
+// Session toggles //
+document.querySelectorAll('.session-toggle').forEach(button => {
+  button.addEventListener('click',()=>{
+    const targetId = button.getAttribute('data-target');
+    const targetContent = document.getElementById(targetId);
+    if (targetContent){
+      targetContent.classList.toggle('collapsed');
+      button.classList.toggle('collapsed');
+    }
+  });
+});

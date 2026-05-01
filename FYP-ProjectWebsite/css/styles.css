@@ -100,6 +100,7 @@ img { display: block; max-width: 100%; }
 .section-header {
   text-align: center;
   margin-bottom: 56px;
+  position: relative;
 }
 
 .section-header.left-align {
@@ -1234,4 +1235,75 @@ img { display: block; max-width: 100%; }
   .team-card { flex-direction: column; }
 
   .user-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* New */
+.panel-content{
+  transition: max-height var(-- transition);
+}
+
+.meeting-content{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.session{
+  padding: 24px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.session h3{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 1.1rem;
+}
+
+.session-toggle {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform var(--transition);
+}
+
+.session-toggle.collapsed {
+  transform: rotate(-90deg);
+}
+
+.session-content {
+  max-height: 500px;
+  overflow: hidden;
+  transition: max-height var(--transition);
+  margin-top: 18px;
+}
+
+.session-content.collapsed{
+  max-height: 0;
+}
+
+@media (max-wdith: 980px)
+{
+  .meeting-content{
+    grid-template-columns: repeat(7,minmax(0,1fr));
+  }
+}
+
+@media (max-width: 640px)
+{
+  .meeting-content
+  {
+    grid-template-columns: 1fr;
+  }
+}
+/* Reflective Diaries Page*/
+.page-offset {
+  padding-top: var(--nav-h);
 }
