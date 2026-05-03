@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EverMotion — Carousel Unit Tests</title>
+  <style>
+    body { font-family: monospace; padding: 24px; background: #0d0f14; color: #e8eaf0; line-height: 1.8; }
+    h1   { font-size: 0.9rem; color: #8b909e; margin-bottom: 20px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .pass { color: #00d4aa; }
+    .fail { color: #ef4444; }
+    .summary { margin-top: 20px; padding-top: 16px; border-top: 1px solid #ffffff18; font-size: 1rem; }
+    .ok  { color: #00d4aa; }
+    .err { color: #ef4444; }
+  </style>
+</head>
+<body>
+  <h1>EverMotion &mdash; Carousel Unit Tests</h1>
+  <div id="results"></div>
+
+  <!-- Minimal carousel DOM (hidden) — matches structure in index.html -->
+  <div id="carouselOuter" style="display:none">
+    <div class="carousel-viewport">
+      <div id="carouselTrack" style="display:flex">
+        <div class="carousel-slide">Slide 1</div>
+        <div class="carousel-slide">Slide 2</div>
+        <div class="carousel-slide">Slide 3</div>
+      </div>
+    </div>
+    <button id="carouselPrev">Prev</button>
+    <button id="carouselNext">Next</button>
+    <div id="carouselDots"></div>
+  </div>
+
+  <script>
+    /* ----------------------------------------------------------------
+       Carousel logic — kept in sync with the version in js/main.js.
+       If you change initCarousel() in main.js, update this copy too.
+       Note: clickCooldown (650ms debounce on user nav) is intentionally
+       omitted here so sequential test calls to goTo/next/prev work without
+       async delays. The mouseleave fix (resetTimer vs startTimer) is kept.
+    ---------------------------------------------------------------- */
+    function initCarousel() {
+      const track         = document.getElementById('carouselTrack');
+      const dotsContainer = document.getElementById('carouselDots');
+      const prevBtn       = document.getElementById('carouselPrev');
+      const nextBtn       = document.getElementById('carouselNext');
+      const outer         = document.getElementById('carouselOuter');
+
+      if (!track) return null;
+
+      const slides = Array.from(track.querySelectorAll('.carousel-slide'));
+      const total  = slides.length;
+      if (total === 0) return null;
+
+      let current = 0;
+      let timer   = null;
+      const INTERVAL = 4500;
+
+      function goTo(idx) {
+        current = ((idx % total) + total) % total;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        if (dotsContainer) {
+          dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === current);
+          });
+        }
+      }
+
+      function next()       { goTo(current + 1); }
+      function prev()       { goTo(current - 1); }
+      function startTimer() { if (!timer) timer = setInterval(next, INTERVAL); }
+      function stopTimer()  { clearInterval(timer); timer = null; }
+      function resetTimer() { stopTimer(); startTimer(); }
+
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to game ' + (i + 1));
+        dot.setAttribute('role', 'tab');
+        dot.addEventListener('click', () => { goTo(i); resetTimer(); });
+        if (dotsContainer) dotsContainer.appendChild(dot);
+      });
+
+      if (prevBtn) prevBtn.addEventListener('click', () => { prev(); resetTimer(); });
+      if (nextBtn) nextBtn.addEventListener('click', () => { next(); resetTimer(); });
+
+      if (outer) {
+        outer.addEventListener('mouseenter', stopTimer);
+        outer.addEventListener('mouseleave', resetTimer);
+      }
+
+      let touchStartX = 0;
+      track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); resetTimer(); }
+      }, { passive: true });
+
+      startTimer();
+
+      return { goTo, next, prev,
+               getCurrent: () => current,
+               getTotal:   () => total,
+               stop:  stopTimer,
+               start: startTimer };
+    }
+
+    /* ---- Tiny test runner ---- */
+    const results = document.getElementById('results');
+    let passed = 0, failed = 0;
+
+    function test(name, fn) {
+      try {
+        fn();
+        results.innerHTML += '<p class="pass">&#10003; ' + name + '</p>';
+        passed++;
+      } catch (e) {
+        results.innerHTML += '<p class="fail">&#10007; ' + name + ' &mdash; ' + e.message + '</p>';
+        failed++;
+      }
+    }
+
+    function assert(condition, msg) {
+      if (!condition) throw new Error(msg || 'Assertion failed');
+    }
+
+    function assertEqual(a, b, msg) {
+      if (a !== b) throw new Error((msg ? msg + ' ' : '') + '(expected ' + JSON.stringify(b) + ', got ' + JSON.stringify(a) + ')');
+    }
+
+    /* ---- Tests ---- */
+    const c = initCarousel();
+
+    test('initCarousel() returns non-null object',
+      () => assert(c !== null && typeof c === 'object'));
+
+    test('getTotal() returns 3 (matches 3 slides in DOM)',
+      () => assertEqual(c.getTotal(), 3));
+
+    test('getCurrent() starts at 0',
+      () => assertEqual(c.getCurrent(), 0));
+
+    test('next() → index 1',
+      () => { c.next(); assertEqual(c.getCurrent(), 1); });
+
+    test('next() → index 2',
+      () => { c.next(); assertEqual(c.getCurrent(), 2); });
+
+    test('next() wraps from last back to 0',
+      () => { c.next(); assertEqual(c.getCurrent(), 0); });
+
+    test('prev() wraps from 0 to last (2)',
+      () => { c.prev(); assertEqual(c.getCurrent(), 2); });
+
+    test('prev() decrements normally',
+      () => { c.prev(); assertEqual(c.getCurrent(), 1); });
+
+    test('goTo(0) jumps directly to 0',
+      () => { c.goTo(0); assertEqual(c.getCurrent(), 0); });
+
+    test('goTo(2) jumps directly to 2',
+      () => { c.goTo(2); assertEqual(c.getCurrent(), 2); });
+
+    test('goTo() with index > total wraps correctly (15 % 3 = 0)',
+      () => { c.goTo(15); assertEqual(c.getCurrent(), 0); });
+
+    test('goTo() with negative index wraps correctly (−1 → 2)',
+      () => { c.goTo(-1); assertEqual(c.getCurrent(), 2); });
+
+    test('3 dots created in DOM',
+      () => assertEqual(document.querySelectorAll('.carousel-dot').length, 3));
+
+    test('Active dot matches current slide after goTo(1)',
+      () => {
+        c.goTo(1);
+        const dots = document.querySelectorAll('.carousel-dot');
+        assert(dots[1].classList.contains('active'),  'dot[1] not active');
+        assert(!dots[0].classList.contains('active'), 'dot[0] wrongly active');
+        assert(!dots[2].classList.contains('active'), 'dot[2] wrongly active');
+      });
+
+    test('Track transform matches slide index (index 2 → translateX(-200%))',
+      () => {
+        c.goTo(2);
+        assertEqual(
+          document.getElementById('carouselTrack').style.transform,
+          'translateX(-200%)'
+        );
+      });
+
+    test('Clicking Prev button decrements index',
+      () => { c.goTo(2); document.getElementById('carouselPrev').click(); assertEqual(c.getCurrent(), 1); });
+
+    test('Clicking Next button increments index',
+      () => { c.goTo(0); document.getElementById('carouselNext').click(); assertEqual(c.getCurrent(), 1); });
+
+    test('stop() does not throw',
+      () => { c.stop(); assert(true); });
+
+    test('start() does not throw after stop()',
+      () => { c.start(); assert(true); });
+
+    test('stop() then goTo() still works (no timer interference)',
+      () => { c.stop(); c.goTo(0); assertEqual(c.getCurrent(), 0); });
+
+    /* ---- Summary ---- */
+    const total_tests = passed + failed;
+    const cls = failed === 0 ? 'ok' : 'err';
+    results.innerHTML +=
+      '<p class="summary ' + cls + '">' +
+        passed + ' / ' + total_tests + ' tests passed' +
+        (failed > 0 ? ' &mdash; ' + failed + ' FAILED' : ' &mdash; All good!') +
+      '</p>';
+  </script>
+</body>
+</html>

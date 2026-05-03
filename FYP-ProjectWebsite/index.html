@@ -63,6 +63,7 @@
         </button>
         <ul class="nav-links" id="navLinks">
           <li><a href="#about">About</a></li>
+          <li><a href="#games">Games</a></li>
           <li><a href="#features">Features</a></li>
           <li><a href="#tech">Tech Stack</a></li>
           <li><a href="#progress">Progress</a></li>
@@ -74,13 +75,24 @@
     </div>
   </nav>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="home">
-    <div class="hero-bg">
-      <div class="hero-orb orb-1"></div>
-      <div class="hero-orb orb-2"></div>
-      <div class="hero-orb orb-3"></div>
-      <div class="grid-overlay"></div>
+  <!-- ===== HERO (Video Placeholder â€” replace cinema-bg with <video> when ready) ===== -->
+  <section class="hero video-hero" id="home">
+    <div class="hero-cinema-bg">
+      <!--
+        TO ADD MARKETING VIDEO: remove this comment block and replace the cinema-bg div with:
+        <video class="hero-video" autoplay muted loop playsinline>
+          <source src="assets/video/hero.mp4" type="video/mp4">
+        </video>
+      -->
+      <div class="cinema-grid"></div>
+      <div class="cinema-orb cinema-orb-1"></div>
+      <div class="cinema-orb cinema-orb-2"></div>
+      <div class="cinema-vignette"></div>
+    </div>
+    <div class="hero-video-badge">
+      <span class="hvb-dot"></span>
+      <span>Marketing Video</span>
+      <span class="hvb-pill">Coming Soon</span>
     </div>
     <div class="hero-content">
       <div class="hero-badge">FYP-26-S2-3 &bull; Team EchoCare</div>
@@ -94,13 +106,229 @@
       </p>
       <div class="hero-cta">
         <a href="#about" class="btn btn-primary">Explore Project</a>
-        <a href="#features" class="btn btn-ghost">See Features</a>
+        <a href="#games" class="btn btn-ghost">See Games</a>
       </div>
+    </div>
+    <div class="hero-visual-wrap" aria-hidden="true">
+      <img src="assets/hero-video-placeholder-picture.png" alt="" class="hero-placeholder-picture" />
     </div>
     <div class="hero-scroll-hint">
       <span>Scroll to explore</span>
       <div class="scroll-arrow"></div>
     </div>
+  </section>
+
+  <!-- ===== GAMES CAROUSEL ===== -->
+  <section class="section section-alt" id="games">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Mini Games</span>
+        <h2>Twelve Games, Twelve Challenges</h2>
+        <p class="section-sub">Each game targets a specific movement &mdash; repair the robot&rsquo;s systems one challenge at a time</p>
+      </div>
+      <div class="carousel-outer" id="carouselOuter">
+        <div class="carousel-viewport">
+          <div class="carousel-track" id="carouselTrack">
+
+            <div class="carousel-slide" style="--gc:#00d4aa">
+              <div class="carousel-card">
+                <div class="carousel-img-col">
+                  <span class="carousel-num-bg">01</span>
+                  <span class="carousel-icon" aria-hidden="true">&#8593;</span>
+                </div>
+                <div class="carousel-info-col">
+                  <span class="carousel-focus">Upper Limb &middot; Reach</span>
+                  <h3 class="carousel-name">Sky Reach</h3>
+                  <p class="carousel-mission">&ldquo;Restore Upper Power Grid&rdquo;</p>
+                  <p class="carousel-desc">Reach upward to reconnect floating energy nodes drifting across the screen. Each successful connection restores a piece of the robot&rsquo;s upper power grid.</p>
+                  <span class="carousel-counter">01 / 12</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-slide" style="--gc:#ff8c42">
+              <div class="carousel-card">
+                <div class="carousel-img-col">
+                  <span class="carousel-num-bg">02</span>
+                  <span class="carousel-icon" aria-hidden="true">&#8596;</span>
+                </div>
+                <div class="carousel-info-col">
+                  <span class="carousel-focus">Upper Limb &middot; Side Stretch</span>
+                  <h3 class="carousel-name">Side Stretch</h3>
+                  <p class="carousel-mission">&ldquo;Reconnect Side Circuits&rdquo;</p>
+                  <p class="carousel-desc">Activate side panels by reaching left and right to connect scattered energy circuits. Each panel lit restores lateral mobility to the robot&rsquo;s systems.</p>
+                  <span class="carousel-counter">02 / 12</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-slide" style="--gc:#fbbf24">
+              <div class="carousel-card">
+                <div class="carousel-img-col">
+                  <span class="carousel-num-bg">03</span>
+                  <span class="carousel-icon" aria-hidden="true">&#9670;</span>
+                </div>
+                <div class="carousel-info-col">
+                  <span class="carousel-focus">Upper Limb &middot; Steady Hold</span>
+                  <h3 class="carousel-name">Pour Energy</h3>
+                  <p class="carousel-mission">&ldquo;Stabilise Power Flow&rdquo;</p>
+                  <p class="carousel-desc">Hold your arm steady to pour energy from a floating canister into a receiver. Shaking spills the energy &mdash; calm, controlled movement keeps the flow steady.</p>
+                  <span class="carousel-counter">03 / 12</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-slide" style="--gc:#22c55e">
+              <div class="carousel-card">
+                <div class="carousel-img-col">
+                  <span class="carousel-num-bg">04</span>
+                  <span class="carousel-icon" aria-hidden="true">&#8594;</span>
+                </div>
+                <div class="carousel-info-col">
+                  <span class="carousel-focus">Upper Limb &middot; Extension</span>
+                  <h3 class="carousel-name">Forward Push</h3>
+                  <p class="carousel-mission">&ldquo;Activate Motion Drive&rdquo;</p>
+                  <p class="carousel-desc">Push energy blocks forward by extending your arm to activate the robot&rsquo;s motion drive. Each block pushed builds momentum and restores forward locomotion.</p>
+                  <span class="carousel-counter">04 / 12</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-slide" style="--gc:#ef4444">
+              <div class="carousel-card">
+                <div class="carousel-img-col">
+                  <span class="carousel-num-bg">05</span>
+                  <span class="carousel-icon" aria-hidden="true">&#9632;</span>
+                </div>
+                <div class="carousel-info-col">
+                  <span class="carousel-focus">Upper Limb &middot; Block</span>
+                  <h3 class="carousel-name">Block the Pulse</h3>
+                  <p class="carousel-mission">&ldquo;Defend Control System&rdquo;</p>
+                  <p class="carousel-desc">Incoming energy pulses threaten the robot&rsquo;s control system &mdash; bend your arm to intercept and deflect them before they cause damage. Speed and timing matter.</p>
+                  <span class="carousel-counter">05 / 12</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-slide" style="--gc:#a855f7">
+              <div class="carousel-card">
+                <div class="carousel-img-col">
+                  <span class="carousel-num-bg">06</span>
+                  <span class="carousel-icon" aria-hidden="true">&#8764;</span>
+                </div>
+                <div class="carousel-info-col">
+                  <span class="carousel-focus">Elbow &middot; Angle Control</span>
+                  <h3 class="carousel-name">Guide the Beam</h3>
+                  <p class="carousel-mission">&ldquo;Align Energy Channels&rdquo;</p>
+                  <p class="carousel-desc">Steer a precision energy beam along winding channels by controlling your elbow angle. Smooth and deliberate movement keeps the beam on track and the circuits aligned.</p>
+                  <span class="carousel-counter">06 / 12</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-slide" style="--gc:#06b6d4">
+              <div class="carousel-card">
+                <div class="carousel-img-col">
+                  <span class="carousel-num-bg">07</span>
+                  <span class="carousel-icon" aria-hidden="true">&#8635;</span>
+                </div>
+                <div class="carousel-info-col">
+                  <span class="carousel-focus">Wrist &middot; Rotation</span>
+                  <h3 class="carousel-name">Turn the Core</h3>
+                  <p class="carousel-mission">&ldquo;Calibrate Rotation Unit&rdquo;</p>
+                  <p class="carousel-desc">Rotate your wrist to align spinning calibration dials and unlock the robot&rsquo;s internal rotation unit. Precision and patience bring each dial into perfect sync.</p>
+                  <span class="carousel-counter">07 / 12</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-slide" style="--gc:#6366f1">
+              <div class="carousel-card">
+                <div class="carousel-img-col">
+                  <span class="carousel-num-bg">08</span>
+                  <span class="carousel-icon" aria-hidden="true">&#9900;</span>
+                </div>
+                <div class="carousel-info-col">
+                  <span class="carousel-focus">Wrist &middot; Stability</span>
+                  <h3 class="carousel-name">Balance the Core</h3>
+                  <p class="carousel-mission">&ldquo;Stabilise Internal Energy&rdquo;</p>
+                  <p class="carousel-desc">Hold an energy sphere perfectly still in the centre of the field. Any wrist movement sends it rolling &mdash; steady hands keep the robot&rsquo;s core from destabilising.</p>
+                  <span class="carousel-counter">08 / 12</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-slide" style="--gc:#ec4899">
+              <div class="carousel-card">
+                <div class="carousel-img-col">
+                  <span class="carousel-num-bg">09</span>
+                  <span class="carousel-icon" aria-hidden="true">&#9889;</span>
+                </div>
+                <div class="carousel-info-col">
+                  <span class="carousel-focus">Wrist &middot; Flick</span>
+                  <h3 class="carousel-name">Energy Flick</h3>
+                  <p class="carousel-mission">&ldquo;Release Power Pulses&rdquo;</p>
+                  <p class="carousel-desc">Flick your wrist to launch energy pulses at broken nodes scattered across the field. Fast, precise snaps send pulses flying &mdash; restore the robot&rsquo;s rapid-response system.</p>
+                  <span class="carousel-counter">09 / 12</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-slide" style="--gc:#84cc16">
+              <div class="carousel-card">
+                <div class="carousel-img-col">
+                  <span class="carousel-num-bg">10</span>
+                  <span class="carousel-icon" aria-hidden="true">&#9679;</span>
+                </div>
+                <div class="carousel-info-col">
+                  <span class="carousel-focus">Finger &middot; Precision Tap</span>
+                  <h3 class="carousel-name">Light Tap</h3>
+                  <p class="carousel-mission">&ldquo;Activate Micro Nodes&rdquo;</p>
+                  <p class="carousel-desc">Tiny micro-nodes light up across the screen, each mapped to a different finger. Tap each one precisely to restore fine motor control to the robot&rsquo;s precision system.</p>
+                  <span class="carousel-counter">10 / 12</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-slide" style="--gc:#d946ef">
+              <div class="carousel-card">
+                <div class="carousel-img-col">
+                  <span class="carousel-num-bg">11</span>
+                  <span class="carousel-icon" aria-hidden="true">&#9834;</span>
+                </div>
+                <div class="carousel-info-col">
+                  <span class="carousel-focus">Hand &middot; Rhythm &amp; Timing</span>
+                  <h3 class="carousel-name">Tap on Signal</h3>
+                  <p class="carousel-mission">&ldquo;Synchronise Systems&rdquo;</p>
+                  <p class="carousel-desc">Tap in sync with rhythmic energy signals to synchronise the robot&rsquo;s fragmented systems. Timing and coordination rebuild the connection between all operational units.</p>
+                  <span class="carousel-counter">11 / 12</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-slide" style="--gc:#eab308">
+              <div class="carousel-card">
+                <div class="carousel-img-col">
+                  <span class="carousel-num-bg">12</span>
+                  <span class="carousel-icon" aria-hidden="true">&#10022;</span>
+                </div>
+                <div class="carousel-info-col">
+                  <span class="carousel-focus">Hand &middot; Full Calibration</span>
+                  <h3 class="carousel-name">Energy Control</h3>
+                  <p class="carousel-mission">&ldquo;Final Calibration &mdash; Full System Online&rdquo;</p>
+                  <p class="carousel-desc">Regulate a surging energy field using precise pinch and spread gestures. Too much force overloads the system; too little loses control. Perfect calibration brings the robot fully online.</p>
+                  <span class="carousel-counter">12 / 12</span>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /.carousel-track -->
+        </div><!-- /.carousel-viewport -->
+        <button class="carousel-btn carousel-btn-prev" id="carouselPrev" aria-label="Previous game">&#8592;</button>
+        <button class="carousel-btn carousel-btn-next" id="carouselNext" aria-label="Next game">&#8594;</button>
+        <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Game slides"></div>
+      </div><!-- /.carousel-outer -->
+    </div><!-- /.container -->
   </section>
 
   <!-- ===== ABOUT ===== -->

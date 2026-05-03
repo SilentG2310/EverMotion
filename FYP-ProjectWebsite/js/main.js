@@ -38,6 +38,8 @@ const navLinks = document.querySelectorAll('.nav-links li a');
 const sections = document.querySelectorAll('section[id]');
 
 function updateNav() {
+  if (!navbar) return;
+
   // Scrolled style
   if (window.scrollY > 20) {
     navbar.classList.add('scrolled');
@@ -67,16 +69,18 @@ updateNav();
 const navToggle = document.getElementById('navToggle');
 const navLinksEl = document.getElementById('navLinks');
 
-navToggle.addEventListener('click', () => {
-  navLinksEl.classList.toggle('open');
-});
-
-// Close mobile nav on link click
-navLinksEl.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinksEl.classList.remove('open');
+if (navToggle && navLinksEl) {
+  navToggle.addEventListener('click', () => {
+    navLinksEl.classList.toggle('open');
   });
-});
+
+  // Close mobile nav on link click
+  navLinksEl.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinksEl.classList.remove('open');
+    });
+  });
+}
 
 // ---------- Intersection Observer: fade-in on scroll ----------
 const fadeTargets = document.querySelectorAll(
@@ -148,11 +152,101 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const target = document.querySelector(this.getAttribute('href'));
     if (!target) return;
     e.preventDefault();
-    const offset = navbar.offsetHeight + 8;
+    const offset = (navbar?.offsetHeight || 0) + 8;
     const top = target.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top, behavior: 'smooth' });
   });
 });
+
+// ---------- Games Carousel ----------
+function initCarousel() {
+  const track = document.getElementById('carouselTrack');
+  const dotsContainer = document.getElementById('carouselDots');
+  const prevBtn = document.getElementById('carouselPrev');
+  const nextBtn = document.getElementById('carouselNext');
+  const outer = document.getElementById('carouselOuter');
+
+  if (!track) return null;
+
+  const slides = Array.from(track.querySelectorAll('.carousel-slide'));
+  const total = slides.length;
+  if (total === 0) return null;
+
+  let current = 0;
+  let timer = null;
+  let clickCooldown = false;
+  const INTERVAL = 4500;
+
+  function goTo(idx) {
+    current = ((idx % total) + total) % total;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    if (dotsContainer) {
+      dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === current);
+      });
+    }
+  }
+
+  function next()       { goTo(current + 1); }
+  function prev()       { goTo(current - 1); }
+  function startTimer() {
+    if (!timer) timer = setInterval(next, INTERVAL);
+  }
+  function stopTimer()  { clearInterval(timer); timer = null; }
+  function resetTimer() { stopTimer(); startTimer(); }
+
+  // Prevents a second user interaction from firing mid-transition (0.6s CSS transition).
+  // Auto-play bypasses this â€” only click/swipe/dot interactions are gated.
+  function onUserNav(fn) {
+    if (clickCooldown) return;
+    clickCooldown = true;
+    fn();
+    setTimeout(() => { clickCooldown = false; }, 650);
+  }
+
+  // Build dot indicators
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to game ' + (i + 1));
+    dot.setAttribute('role', 'tab');
+    dot.addEventListener('click', () => onUserNav(() => { goTo(i); resetTimer(); }));
+    if (dotsContainer) dotsContainer.appendChild(dot);
+  });
+
+  if (prevBtn) prevBtn.addEventListener('click', () => onUserNav(() => { prev(); resetTimer(); }));
+  if (nextBtn) nextBtn.addEventListener('click', () => onUserNav(() => { next(); resetTimer(); }));
+
+  if (outer) {
+    outer.addEventListener('mouseenter', stopTimer);
+    // resetTimer (not startTimer) â€” prevents a second interval spawning when the
+    // user clicks Next while hovering, then moves the mouse away.
+    outer.addEventListener('mouseleave', resetTimer);
+  }
+
+  // Touch / swipe support
+  let touchStartX = 0;
+  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) { onUserNav(() => { dx < 0 ? next() : prev(); resetTimer(); }); }
+  }, { passive: true });
+
+  startTimer();
+
+  // Public API (used by unit tests)
+  return {
+    goTo,
+    next,
+    prev,
+    getCurrent: () => current,
+    getTotal:   () => total,
+    stop:  stopTimer,
+    start: startTimer,
+  };
+}
+
+window._carousel = initCarousel();
 
 // Session toggles //
 document.querySelectorAll('.session-toggle').forEach(button => {
