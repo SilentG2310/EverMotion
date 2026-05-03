@@ -27,13 +27,184 @@
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
           <span></span><span></span><span></span>
         </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#games">Games</a></li>
+          <li><a href="../index.html#features">Features</a></li>
+          <li><a href="../index.html#tech">Tech Stack</a></li>
+          <li><a href="../index.html#progress">Progress</a></li>
+          <li><a href="../document.html">Administrative Documents</a></li>
+          <li><a href="../index.html#team">Team</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
       </div>
     </div>
   </nav>
-<main class="page-offset">
-    <h1>Jason Jia Sheng's Reflective Diary</h1>
-    <h2>Week 1</h2>
-    <h2>Week 2</h2>  
+<main class="page-offset diary-page">
+    <div class="diary-toolbar">
+      <a class="diary-back-link" href="../document.html#reflectDiaries"><span aria-hidden="true">&larr;</span> Reflection Diaries</a>
+    </div>
+    <nav class="diary-switcher" aria-label="Team reflection diaries">
+      <span class="diary-switcher-label">Team Diaries</span>
+      <div class="diary-switcher-links">
+        <a href="GavinDiary.html">Gavin</a>
+        <a href="ccDiary.html">Channelle</a>
+        <a href="ZXDiary.html">Zheng Xiao</a>
+        <a class="active" href="jsDiary.html" aria-current="page">Jia Sheng</a>
+        <a href="joshuaDiary.html">Joshua</a>
+        <a href="JHDiary.html">Jun Hui</a>
+      </div>
+    </nav>
+    <section class="diary-hero">
+      <span class="section-kicker">Reflective Diary</span>
+      <h1>Jia Sheng's Reflection Journal</h1>
+    </section>
+
+    <section class="diary-timeline" aria-label="Jia Sheng weekly reflections">
+      <article class="diary-week">
+        <header class="diary-week-header">
+          <div>
+            <span class="diary-week-label">Week 1</span>
+            <h2>12 April 2026 - 19 April 2026</h2>
+          </div>
+          <span class="diary-week-tag">Project Direction</span>
+        </header>
+
+        <div class="diary-section-grid">
+          <section class="diary-block">
+            <h3>Work Done</h3>
+            <ul>
+              <li>Presented the EverMotion project idea to Mr Tian.</li>
+              <li>Discussed the need to avoid keyboard and mouse interaction.</li>
+              <li>Brainstormed rehabilitation game ideas for grip strength, steady hand control, and cognitive engagement.</li>
+              <li>Contacted St Luke's Eldercare HQ at SIM to explore collaboration opportunities.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block">
+            <h3>Learning</h3>
+            <ul>
+              <li>MediaPipe can detect 21 hand landmarks using a standard webcam.</li>
+              <li>OpenCV can support webcam input, preprocessing, and tracking visual overlays.</li>
+              <li>Calibration gestures can help adapt the system to each user's movement range.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block">
+            <h3>Challenges</h3>
+            <ul>
+              <li>Hand tracking may be affected by tremors, restricted movement, or poor lighting.</li>
+              <li>The system may need smoothing algorithms and better error handling to stay usable for elderly users.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block">
+            <h3>Reflection</h3>
+            <ul>
+              <li>This week helped confirm that calibration is central to EverMotion.</li>
+              <li>The game should adapt interaction areas, object positions, and speed based on each user's movement ability.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block diary-block-wide">
+            <h3>Next Steps</h3>
+            <ul>
+              <li>Continue refining the calibration approach.</li>
+              <li>Seek real-world feedback from eldercare or rehabilitation partners to ensure the games provide meaningful therapeutic value.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="diary-week">
+        <header class="diary-week-header">
+          <div>
+            <span class="diary-week-label">Week 2</span>
+            <h2>19 April 2026 - 26 April 2026</h2>
+          </div>
+          <span class="diary-week-tag">Scope Expansion</span>
+        </header>
+
+        <div class="diary-section-grid">
+          <section class="diary-block">
+            <h3>Work Done</h3>
+            <ul>
+              <li>Helped the team re-scope the project after feedback that three mini-games were insufficient for the team size.</li>
+              <li>Facilitated discussion and helped synthesize ideas for 12 rehabilitation games across shoulder, elbow, wrist, and fingers.</li>
+              <li>Proposed the Fruit Harvest concept, which became the creative foundation for the Side Stretch game under the shoulder category.</li>
+              <li>Built a simple Fruit Harvest prototype using MediaPipe and Pygame to demonstrate real-time hand tracking to the team.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block">
+            <h3>Learning</h3>
+            <ul>
+              <li>MediaPipe hand landmark tracking works in real time, but latency can become noticeable under certain conditions.</li>
+              <li>Tracking accuracy drops when the hand moves near the edges of the webcam frame.</li>
+              <li>These limitations affect game boundary design and reinforce the need for proper calibration.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block diary-block-wide">
+            <h3>Reflection</h3>
+            <ul>
+              <li>The project scope changed significantly this week, but the 12-game direction creates a stronger rehabilitation platform.</li>
+              <li>Facilitating the brainstorming session helped keep the discussion focused while ensuring each member's ideas were heard.</li>
+              <li>Building the prototype was valuable because practical testing revealed latency and tracking-range risks that documentation alone did not show clearly.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="diary-week">
+        <header class="diary-week-header">
+          <div>
+            <span class="diary-week-label">Week 3</span>
+            <h2>26 April 2026 - 03 May 2026</h2>
+          </div>
+          <span class="diary-week-tag">Website Deployment</span>
+        </header>
+
+        <div class="diary-section-grid">
+          <section class="diary-block">
+            <h3>Work Done</h3>
+            <ul>
+              <li>Built the first version of the EverMotion project website with the team overview, project description, and revised 12-game structure.</li>
+              <li>Presented the website to teammates, collected feedback, and refined the layout and content before external access.</li>
+              <li>Collaborated with Jun Hui to add administrative materials such as meeting minutes and progress tracking.</li>
+              <li>Worked with Gavin to deploy the website through Vercel and connect it to the team GitHub repository.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block">
+            <h3>Learning</h3>
+            <ul>
+              <li>Vercel integrates with GitHub so pushes to the repository can automatically trigger deployment.</li>
+              <li>Each deployment can generate a preview URL, which is useful for teammate review before finalising changes.</li>
+              <li>The production URL remains stable, giving supervisors and assessors a permanent link to monitor progress.</li>
+              <li>Continuous Integration should be explored next to support the Continuous Delivery setup already in place.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block">
+            <h3>Reflection</h3>
+            <ul>
+              <li>Building and deploying the website was more involved than expected, but it gave the project a more professional and accessible presence.</li>
+              <li>Working with Gavin on Vercel made the Continuous Delivery process clear through the GitHub push-to-deploy workflow.</li>
+              <li>The work highlighted a gap in integration checks, making CI an important next step as more members contribute code.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block">
+            <h3>Stakeholder Communication</h3>
+            <ul>
+              <li>Working with Jun Hui on administrative content showed that the website is also a communication tool for stakeholders.</li>
+              <li>The website allows Mr Tian and Mr Ee Kiam Keong to check project progress without waiting for scheduled updates.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+    </section>
 </main>
 
  <!-- ===== FOOTER ===== -->
