@@ -32,6 +32,12 @@ if (themeToggle) {
   });
 }
 
+window.addEventListener('storage', event => {
+  if (event.key === THEME_KEY) {
+    applyTheme(event.newValue);
+  }
+});
+
 // ---------- Navbar: scroll state + active link ----------
 const navbar = document.getElementById('navbar');
 const navLinks = document.querySelectorAll('.nav-links li a');
