@@ -40,7 +40,8 @@ window.addEventListener('storage', event => {
 
 // ---------- Navbar: scroll state + active link ----------
 const navbar = document.getElementById('navbar');
-const navLinks = document.querySelectorAll('.nav-links li a');
+const navLinks = document.querySelectorAll('.nav-link, .mega-menu a');
+const megaTriggers = document.querySelectorAll('.mega-trigger');
 const sections = document.querySelectorAll('section[id]');
 
 function updateNav() {
@@ -60,10 +61,13 @@ function updateNav() {
     if (window.scrollY >= top) current = sec.getAttribute('id');
   });
 
+  megaTriggers.forEach(trigger => trigger.classList.remove('active'));
+
   navLinks.forEach(link => {
     link.classList.remove('active');
     if (link.getAttribute('href') === '#' + current) {
       link.classList.add('active');
+      link.closest('.mega-item')?.querySelector('.mega-trigger')?.classList.add('active');
     }
   });
 }
@@ -74,16 +78,61 @@ updateNav();
 // ---------- Mobile nav toggle ----------
 const navToggle = document.getElementById('navToggle');
 const navLinksEl = document.getElementById('navLinks');
+const megaItems = document.querySelectorAll('.mega-item');
+const mobileNavQuery = window.matchMedia('(max-width: 680px)');
+
+function setMegaOpen(item, isOpen) {
+  const trigger = item.querySelector('.mega-trigger');
+  item.classList.toggle('open', isOpen);
+  trigger?.setAttribute('aria-expanded', String(isOpen));
+}
+
+megaItems.forEach(item => {
+  const trigger = item.querySelector('.mega-trigger');
+  if (!trigger) return;
+
+  trigger.addEventListener('click', () => {
+    if (!mobileNavQuery.matches) return;
+    setMegaOpen(item, !item.classList.contains('open'));
+  });
+
+  item.addEventListener('mouseenter', () => {
+    if (!mobileNavQuery.matches) setMegaOpen(item, true);
+  });
+
+  item.addEventListener('mouseleave', () => {
+    if (!mobileNavQuery.matches) setMegaOpen(item, false);
+  });
+
+  item.addEventListener('focusin', () => {
+    if (!mobileNavQuery.matches) setMegaOpen(item, true);
+  });
+
+  item.addEventListener('focusout', event => {
+    if (!mobileNavQuery.matches && !item.contains(event.relatedTarget)) {
+      setMegaOpen(item, false);
+    }
+  });
+});
+
+mobileNavQuery.addEventListener('change', () => {
+  navLinksEl?.classList.remove('open');
+  megaItems.forEach(item => setMegaOpen(item, false));
+});
 
 if (navToggle && navLinksEl) {
   navToggle.addEventListener('click', () => {
     navLinksEl.classList.toggle('open');
+    if (!navLinksEl.classList.contains('open')) {
+      megaItems.forEach(item => setMegaOpen(item, false));
+    }
   });
 
   // Close mobile nav on link click
   navLinksEl.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       navLinksEl.classList.remove('open');
+      megaItems.forEach(item => setMegaOpen(item, false));
     });
   });
 }
