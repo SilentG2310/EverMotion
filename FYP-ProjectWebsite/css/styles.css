@@ -1457,6 +1457,14 @@ img { display: block; max-width: 100%; }
 .meeting-content .session:nth-child(4)::after { content: "15 Apr 2026"; }
 .meeting-content .session:nth-child(5)::after { content: "19 Apr 2026"; }
 .meeting-content .session:nth-child(6)::after { content: "01 May 2026"; }
+.meeting-content .session:nth-child(7)::after { content: "05 May 2026"; }
+.meeting-content .session:nth-child(8)::after { content: "07 May 2026"; }
+.meeting-content .session:nth-child(9)::after { content: "09 May 2026"; }
+.meeting-content .session:nth-child(10)::after { content: "14 May 2026" }
+.meeting-content .session:nth-child(11)::after { content: "15 May 2026";}
+.meeting-content .session:nth-child(12)::after { content: "21 May 2026";}
+.meeting-content .session:nth-child(13)::after { content: "23 May 2026";}
+
 
 .session h3{
   display: flex;
