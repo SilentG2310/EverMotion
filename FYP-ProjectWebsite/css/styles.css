@@ -1465,6 +1465,7 @@ img { display: block; max-width: 100%; }
 .meeting-content .session:nth-child(12)::after { content: "21 May 2026"; }
 .meeting-content .session:nth-child(13)::after { content: "23 May 2026"; }
 .meeting-content .session:nth-child(14)::after { content: "25 May 2026"; }
+.meeting-content .session:nth-child(15)::after { content: "26 May 2026"; }
 
 
 .session h3{
@@ -1489,7 +1490,7 @@ img { display: block; max-width: 100%; }
 }
 
 .session-content {
-  max-height: 720px;
+  max-height: 500px;
   overflow: hidden;
   transition: max-height var(--transition);
   margin-top: 18px;
@@ -1497,62 +1498,6 @@ img { display: block; max-width: 100%; }
 
 .session-content.collapsed{
   max-height: 0;
-}
-
-.minutes-section {
-  margin: 14px 0;
-}
-
-.minutes-section b,
-.session-content p b {
-  color: var(--text);
-}
-
-.session-content p,
-.minutes-list,
-.minutes-action-table {
-  color: var(--text-muted);
-}
-
-.minutes-list {
-  display: grid;
-  gap: 6px;
-  margin: 8px 0 0;
-  padding-left: 22px;
-  list-style: disc;
-}
-
-.minutes-list ul {
-  display: grid;
-  gap: 4px;
-  margin-top: 6px;
-  padding-left: 24px;
-  list-style: circle;
-}
-
-.minutes-action-table {
-  width: 100%;
-  margin-top: 10px;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-}
-
-.minutes-action-table th,
-.minutes-action-table td {
-  padding: 9px 10px;
-  border: 1px solid var(--border);
-  text-align: left;
-  vertical-align: top;
-}
-
-.minutes-action-table th {
-  color: var(--text);
-  background: var(--surface2);
-}
-
-.minutes-action-table th:first-child,
-.minutes-action-table td:first-child {
-  width: 72px;
 }
 
 .diary-directory-grid {
