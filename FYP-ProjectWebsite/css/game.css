@@ -981,3 +981,173 @@ body {
   padding: 2rem;
   font-style: italic;
 }
+
+/* ================================================================
+   COMMUNITY SPLIT LAYOUT (two-column, Valorant-style)
+   ================================================================ */
+
+.community-split-section {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background: linear-gradient(135deg, #0A1628 0%, #1A3A6B 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Left column – robot art */
+.community-art {
+  flex: 0 0 45%;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.community-art::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.community-robots-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  position: relative;
+  z-index: 1;
+  margin-bottom: -20px;
+  filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.3));
+}
+
+/* Right column – content */
+.community-content {
+  flex: 0 0 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 3rem 3rem 2rem;
+}
+
+/* Heading block inside right column */
+.community-heading {
+  margin-bottom: 1.5rem;
+}
+
+.community-heading .section-dots {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  margin-bottom: 0.75rem;
+}
+
+.community-heading .section-dots span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00D4FF;
+}
+
+.community-heading h2 {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.community-sub {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  margin: 0 0 1.5rem 0;
+}
+
+/* Dark-background overrides for tabs and cards */
+.community-split-section .community-tab {
+  border-color: #00D4FF;
+  color: #00D4FF;
+  background: transparent;
+}
+
+.community-split-section .community-tab.active {
+  background: #1E90FF;
+  color: #ffffff;
+  border-color: #1E90FF;
+}
+
+.community-split-section .announcement-card {
+  background: rgba(255, 255, 255, 0.07);
+  border-left-color: #00D4FF;
+  color: #ffffff;
+}
+
+.community-split-section .ann-title {
+  color: #ffffff;
+}
+
+.community-split-section .ann-body {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.community-split-section .ann-date {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.community-split-section .forum-card {
+  background: rgba(255, 255, 255, 0.07);
+  color: #ffffff;
+}
+
+.community-split-section .forum-username {
+  color: #ffffff;
+}
+
+.community-split-section .forum-message {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.community-split-section .forum-date {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.community-split-section .forum-invite p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.community-split-section .forum-recent-heading {
+  color: #ffffff;
+}
+
+/* Mobile: stack columns vertically */
+@media (max-width: 768px) {
+  .community-split-section {
+    flex-direction: column;
+  }
+
+  .community-art {
+    flex: 0 0 auto;
+    max-height: 300px;
+  }
+
+  .community-robots-img {
+    max-width: 280px;
+  }
+
+  .community-content {
+    padding: 1.5rem;
+    max-height: none;
+  }
+}
