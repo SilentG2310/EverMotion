@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EverMotion – Move. Recover. Thrive.</title>
+  <link rel="stylesheet" href="css/game.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===================================================================
+       NAVIGATION
+  =================================================================== -->
+  <nav class="game-nav" id="game-nav">
+    <span class="nav-logo">Team EchoCare</span>
+    <ul class="nav-links">
+      <li><a href="index.html">Project Website</a></li>
+      <li><a href="#download">Download</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================================================================
+       HERO
+  =================================================================== -->
+  <section class="hero" id="hero">
+    <!-- Looping background video -->
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="assets/IntroVideo/openingVideo.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-video-overlay"></div>
+
+    <div class="hero-scanlines"></div>
+    <div class="hero-grid-overlay"></div>
+
+    <div class="hero-content">
+      <h1>EverMotion</h1>
+      <p>A gesture-controlled rehabilitation game suite<br>designed for your recovery and wellness.</p>
+      <a href="#download" class="btn btn-primary btn-glow">Download Now</a>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       SCREENSHOTS CAROUSEL
+  =================================================================== -->
+  <section id="screenshots" class="screenshots-section">
+    <div class="section-header">
+      <div class="section-dots">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="section-title-line">
+        <span class="line-decor line-decor--left"></span>
+        <h2>See It In Action</h2>
+        <span class="line-decor line-decor--right"></span>
+      </div>
+    </div>
+
+    <div class="carousel-wrapper" id="screenshot-carousel">
+      <div class="carousel-stage">
+        <button class="carousel-btn carousel-prev" id="carousel-prev" aria-label="Previous screenshot">&#8592;</button>
+
+        <div class="carousel-viewport">
+          <div class="carousel-track" id="carousel-track">
+            <div class="carousel-slide">
+              <img src="theme/Main Menu.png" alt="Main Menu" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="theme/Player Main Hub.png" alt="Player Main Hub" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="theme/Story Map - Winding Path.png" alt="Story Map – Winding Path" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="theme/Game Assignment Carousel.png" alt="Game Assignment Carousel" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="theme/Game Selection Grid.png" alt="Game Selection Grid" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="theme/Mini Game Tutorial.png" alt="Mini Game Tutorial" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="theme/Story complete.png" alt="Story Complete" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="theme/Summary - List view.png" alt="Summary – List View" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-btn carousel-next" id="carousel-next" aria-label="Next screenshot">&#8594;</button>
+      </div>
+
+      <div class="carousel-controls" id="carousel-dots">
+        <button class="carousel-dot active" data-index="0" aria-label="Screenshot 1"></button>
+        <button class="carousel-dot"        data-index="1" aria-label="Screenshot 2"></button>
+        <button class="carousel-dot"        data-index="2" aria-label="Screenshot 3"></button>
+        <button class="carousel-dot"        data-index="3" aria-label="Screenshot 4"></button>
+        <button class="carousel-dot"        data-index="4" aria-label="Screenshot 5"></button>
+        <button class="carousel-dot"        data-index="5" aria-label="Screenshot 6"></button>
+        <button class="carousel-dot"        data-index="6" aria-label="Screenshot 7"></button>
+        <button class="carousel-dot"        data-index="7" aria-label="Screenshot 8"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       COMMUNITY
+  =================================================================== -->
+  <section id="community" class="features-section">
+    <div class="section-header">
+      <div class="section-dots">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="section-title-line">
+        <span class="line-decor line-decor--left"></span>
+        <h2>Community</h2>
+        <span class="line-decor line-decor--right"></span>
+      </div>
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="community-tabs" role="tablist">
+      <button class="community-tab active" id="tab-btn-announcements" role="tab" aria-selected="true" aria-controls="tab-announcements" data-tab="announcements">
+        📢 Announcements
+      </button>
+      <button class="community-tab" id="tab-btn-forum" role="tab" aria-selected="false" aria-controls="tab-forum" data-tab="forum">
+        💬 Player Forum
+      </button>
+    </div>
+
+    <!-- Tab Panels -->
+    <div class="community-panels">
+
+      <!-- ── Announcements ── -->
+      <div class="community-panel active" id="tab-announcements" role="tabpanel" aria-labelledby="tab-btn-announcements">
+        <div class="announcement-card">
+          <div class="ann-header">
+            <span class="ann-tag">🚀 Release</span>
+            <span class="ann-date">20 June 2026</span>
+          </div>
+          <h3 class="ann-title">EverMotion v0.1 — Milestone 1 Build Now Available</h3>
+          <p class="ann-body">Our first playable build is live! This release includes 6 mini-games across the Shoulder, Finger, and Wrist systems. Download the installer above and give it a try. Webcam required. Windows 10/11 only.</p>
+        </div>
+
+        <div class="announcement-card">
+          <div class="ann-header">
+            <span class="ann-tag">🛠️ Update</span>
+            <span class="ann-date">15 June 2026</span>
+          </div>
+          <h3 class="ann-title">Sky Reach Protocol &amp; Micro Node Activation — Now Playable</h3>
+          <p class="ann-body">Two flagship games are now fully implemented with MediaPipe hand tracking. Sky Reach Protocol targets shoulder rehabilitation through gesture-based energy node collection. Micro Node Activation targets finger precision. More games rolling out before final release in August.</p>
+        </div>
+
+        <div class="announcement-card">
+          <div class="ann-header">
+            <span class="ann-tag">📅 Event</span>
+            <span class="ann-date">13 June 2026</span>
+          </div>
+          <h3 class="ann-title">Mid-Point Demo Day — 13 June 2026</h3>
+          <p class="ann-body">EchoCare presented EverMotion to our project supervisor and assessor today. The demo showcased our gesture tracking pipeline, game UI, and story mode flow. Thank you to Mr. Tian and Mr. Ee for the valuable feedback!</p>
+        </div>
+      </div>
+
+      <!-- ── Player Forum ── -->
+      <div class="community-panel" id="tab-forum" role="tabpanel" aria-labelledby="tab-btn-forum" hidden>
+        <div class="forum-invite">
+          <p>We'd love to hear from you! Share your experience, report a bug, or suggest a feature. All feedback goes directly to the EchoCare development team.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8ISLZuz-QoKunF-zqwLR1Hj8idZHmBBy22VFhAAlar4B-Gg/viewform" target="_blank" rel="noopener" class="btn btn-primary forum-cta">Submit Feedback via Google Form &rarr;</a>
+        </div>
+
+        <h3 class="forum-recent-heading">What Players Are Saying</h3>
+        <div id="feedback-feed">
+          <div class="feedback-spinner"></div>
+        </div>
+      </div>
+
+    </div><!-- /.community-panels -->
+  </section>
+
+  <!-- ===================================================================
+       HOW IT WORKS
+  =================================================================== -->
+  <section id="how-it-works" class="how-section">
+    <div class="section-header">
+      <div class="section-dots">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="section-title-line">
+        <span class="line-decor line-decor--left"></span>
+        <h2>How It Works</h2>
+        <span class="line-decor line-decor--right"></span>
+      </div>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-badge">1</div>
+        <h3>Download &amp; Install</h3>
+        <p>Get EverMotion on your Windows 10 or 11 PC. Setup takes less than a minute — no extra hardware required.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-badge">2</div>
+        <h3>Set Up Your Profile</h3>
+        <p>Create your player profile, choose your difficulty level, and select the joint areas you want to focus on.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-badge">3</div>
+        <h3>Start Playing</h3>
+        <p>Stand in front of your webcam and let the game guide your rehabilitation session through fun, purposeful movement.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       DOWNLOAD
+  =================================================================== -->
+  <section id="download" class="download-section">
+    <div class="download-panel">
+      <span class="bracket bracket--tr"></span>
+      <span class="bracket bracket--bl"></span>
+      <h2>Ready to Begin Your Recovery?</h2>
+      <p>Join EverMotion and turn rehabilitation into play.</p>
+      <a href="#" class="btn btn-primary">Download EverMotion</a>
+      <p class="download-meta">Windows 10/11 &nbsp;·&nbsp; Webcam Required &nbsp;·&nbsp; Free to Try</p>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       FOOTER
+  =================================================================== -->
+  <footer class="game-footer">
+    <p class="footer-brand">EverMotion by EchoCare &copy; 2026</p>
+    <ul class="footer-links">
+      <li><a href="index.html">&#8592; Back to Project Website</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script src="js/game.js"></script>
+</body>
+</html>
