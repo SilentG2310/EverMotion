@@ -1472,7 +1472,7 @@ img { display: block; max-width: 100%; }
 .meeting-content .session:nth-child(19)::after { content: "11 Jun 2026"; }
 .meeting-content .session:nth-child(20)::after { content: "12 Jun 2026"; }
 .meeting-content .session:nth-child(21)::after { content: "13 Jun 2026"; }
-.meeting-content .session:nth-child(21)::after { content: "24 Jun 2026"; }
+.meeting-content .session:nth-child(22)::after { content: "24 Jun 2026"; }
 
 .session h3{
   display: flex;
