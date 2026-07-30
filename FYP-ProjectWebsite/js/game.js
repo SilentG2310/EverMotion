@@ -1,316 +1,1262 @@
-/* EverMotion – Game Landing Page JS */
+/*=========================================================
+ EVERMOTION
+ game.js
+=========================================================*/
 
-(function () {
-  'use strict';
+"use strict";
 
-  /* ------------------------------------------------------------------
-     NAV: add .scrolled class for backdrop-blur once user scrolls
-  ------------------------------------------------------------------ */
-  const nav = document.getElementById('game-nav');
+/*=========================================================
+ DOM REFERENCES
+=========================================================*/
 
-  window.addEventListener('scroll', function () {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  }, { passive: true });
+const navbar = document.querySelector(".game-nav");
 
-  /* ------------------------------------------------------------------
-     SCREENSHOT CAROUSEL
-  ------------------------------------------------------------------ */
-  const track      = document.getElementById('carousel-track');
-  const prevBtn    = document.getElementById('carousel-prev');
-  const nextBtn    = document.getElementById('carousel-next');
-  const dotsEl     = document.getElementById('carousel-dots');
-  const dots       = dotsEl ? Array.from(dotsEl.querySelectorAll('.carousel-dot')) : [];
-  const totalSlides = dots.length;
+const scrollProgress = document.getElementById("scroll-progress");
 
-  let current     = 0;
-  let autoTimer   = null;
+const backToTop = document.getElementById("backToTop");
 
-  function goTo(index) {
-    current = ((index % totalSlides) + totalSlides) % totalSlides;
-    track.style.transform = 'translateX(-' + (current * 100) + '%)';
-    dots.forEach(function (dot, i) {
-      dot.classList.toggle('active', i === current);
-    });
-  }
+const hero = document.querySelector(".hero");
 
-  function startAuto() {
-    stopAuto();
-    autoTimer = setInterval(function () { goTo(current + 1); }, 4500);
-  }
+const cursorGlow = document.querySelector(".cursor-glow");
 
-  function stopAuto() {
-    if (autoTimer) {
-      clearInterval(autoTimer);
-      autoTimer = null;
-    }
-  }
 
-  if (prevBtn) {
-    prevBtn.addEventListener('click', function () {
-      goTo(current - 1);
-      startAuto();
-    });
-  }
 
-  if (nextBtn) {
-    nextBtn.addEventListener('click', function () {
-      goTo(current + 1);
-      startAuto();
-    });
-  }
+/*=========================================================
+ INITIALIZE
 
-  dots.forEach(function (dot) {
-    dot.addEventListener('click', function () {
-      goTo(parseInt(dot.dataset.index, 10));
-      startAuto();
-    });
-  });
+ window.addEventListener("scroll", handleScroll);
 
-  /* Pause auto-scroll on hover */
-  var carouselEl = document.getElementById('screenshot-carousel');
-  if (carouselEl) {
-    carouselEl.addEventListener('mouseenter', stopAuto);
-    carouselEl.addEventListener('mouseleave', startAuto);
-  }
+function handleScroll() {
 
-  /* Keyboard arrow support when carousel is in view */
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowLeft')  goTo(current - 1);
-    if (e.key === 'ArrowRight') goTo(current + 1);
-  });
+    updateNavbar();
 
-  /* Touch / swipe support */
-  var touchStartX = null;
+    updateProgressBar();
 
-  if (track) {
-    track.addEventListener('touchstart', function (e) {
-      touchStartX = e.touches[0].clientX;
-    }, { passive: true });
+    updateBackToTop();
 
-    track.addEventListener('touchend', function (e) {
-      if (touchStartX === null) return;
-      var delta = e.changedTouches[0].clientX - touchStartX;
-      if (Math.abs(delta) > 50) {
-        goTo(delta < 0 ? current + 1 : current - 1);
-        startAuto();
-      }
-      touchStartX = null;
-    }, { passive: true });
-  }
+    revealElements();
 
-  /* Kick off auto-scroll */
-  startAuto();
+}
+=========================================================*/
 
-  /* ------------------------------------------------------------------
-     SMOOTH SCROLL for same-page anchor links (older browser fallback)
-  ------------------------------------------------------------------ */
-  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-    anchor.addEventListener('click', function (e) {
-      var target = document.querySelector(anchor.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
+document.addEventListener("DOMContentLoaded", () => {
 
-})();
+    initialiseNavigation();
 
-/* ------------------------------------------------------------------
-   FEEDBACK FEED – fetch live responses from Google Sheets CSV
------------------------------------------------------------------- */
-(function () {
-  'use strict';
+    initialiseScrollProgress();
 
-  var SHEET_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTLW19kXyCTEr37YRoPBRae_L1bLmLeuFKqVDVJrWxpPUHTvOu-rurc2YX9UyJg0-2L4hNTEwyGWi4B/pub?gid=62154183&single=true&output=csv';
+    initialiseBackToTop();
+    initialiseMusic();
 
-  /* Proper CSV line parser — handles quoted fields containing commas */
-  function parseCSVLine(line) {
-    var fields = [];
-    var current = '';
-    var inQuotes = false;
-    for (var i = 0; i < line.length; i++) {
-      var ch = line[i];
-      if (ch === '"') {
-        if (inQuotes && line[i + 1] === '"') {
-          current += '"';
-          i++;
-        } else {
-          inQuotes = !inQuotes;
+    initialiseCursorGlow();
+
+    initialiseGallery();
+
+    preloadGallery();
+
+    initialiseLightbox();
+    initialiseCommunityTabs();
+});
+
+/*=========================================================
+ NAVIGATION
+=========================================================*/
+
+function initialiseNavigation() {
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 60) {
+
+            navbar.classList.add("scrolled");
+
         }
-      } else if (ch === ',' && !inQuotes) {
-        fields.push(current);
-        current = '';
-      } else {
-        current += ch;
-      }
+
+        else {
+
+            navbar.classList.remove("scrolled");
+
+        }
+
+    });
+
+}
+
+/*=========================================================
+ SCROLL PROGRESS BAR
+=========================================================*/
+
+function initialiseScrollProgress() {
+
+    window.addEventListener("scroll", () => {
+
+        const scrollTop = document.documentElement.scrollTop;
+
+        const scrollHeight =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
+
+        const progress = (scrollTop / scrollHeight) * 100;
+
+        scrollProgress.style.width = progress + "%";
+
+    });
+
+}
+
+/*=========================================================
+ BACK TO TOP
+=========================================================*/
+
+function initialiseBackToTop() {
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 500) {
+
+            backToTop.classList.add("show");
+
+        }
+
+        else {
+
+            backToTop.classList.remove("show");
+
+        }
+
+    });
+
+    backToTop.addEventListener("click", () => {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    });
+
+}
+
+/*=========================================================
+ CURSOR GLOW
+=========================================================*/
+
+function initialiseCursorGlow() {
+
+    if (!cursorGlow) return;
+
+    document.addEventListener("mousemove", (event) => {
+
+        cursorGlow.style.left = event.clientX + "px";
+
+        cursorGlow.style.top = event.clientY + "px";
+
+    });
+
+}
+
+/* =========================================================
+   EVERMOTION MUSIC
+========================================================= */
+
+let music;
+let musicButton;
+
+
+/* =========================================================
+   INITIALISE MUSIC
+========================================================= */
+
+function initialiseMusic() {
+
+    music =
+        document.getElementById("backgroundMusic");
+
+    const originalButton =
+        document.getElementById("music-toggle");
+
+    if (!music || !originalButton) {
+        console.error("Music elements not found.");
+        return;
     }
-    fields.push(current);
-    return fields;
-  }
 
-  function formatDate(raw) {
-    try {
-      var d = new Date(raw);
-      if (isNaN(d.getTime())) return raw;
-      return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-    } catch (e) {
-      return raw;
-    }
-  }
+    /*
+     * Remove any previous handlers by replacing
+     * the button with a clean clone.
+     */
+    musicButton =
+        originalButton.cloneNode(true);
 
-  function buildStars(rating) {
-    var n = parseInt(rating, 10);
-    if (isNaN(n) || n < 1) n = 0;
-    if (n > 5) n = 5;
-    var filled = '★'.repeat(n);
-    var empty  = '☆'.repeat(5 - n);
-    var span = document.createElement('span');
-    span.style.color = '#f5c518';
-    span.textContent = filled + empty;
-    return span;
-  }
+    originalButton.replaceWith(musicButton);
 
-  function buildCard(row) {
-    var name      = (row[1] || '').trim();
-    var rating    = (row[2] || '').trim();
-    var message   = (row[3] || '').trim();
-    var games     = (row[4] || '').trim();
-    var timestamp = (row[0] || '').trim();
+    /*
+     * Start silent, then fade in.
+     */
+    music.volume = 0;
 
-    var card = document.createElement('div');
-    card.className = 'forum-card';
+    music.play()
+        .then(() => {
 
-    /* Avatar */
-    var avatar = document.createElement('div');
-    avatar.className = 'forum-avatar';
-    avatar.textContent = name ? name.charAt(0).toUpperCase() : '?';
-    card.appendChild(avatar);
+            fadeInMusic();
 
-    /* Body */
-    var body = document.createElement('div');
-    body.className = 'forum-body';
-
-    var meta = document.createElement('div');
-    meta.className = 'forum-meta';
-
-    var username = document.createElement('span');
-    username.className = 'forum-username';
-    username.textContent = name || 'Anonymous';
-    meta.appendChild(username);
-
-    meta.appendChild(buildStars(rating));
-
-    var date = document.createElement('span');
-    date.className = 'forum-date';
-    date.textContent = formatDate(timestamp);
-    meta.appendChild(date);
-
-    body.appendChild(meta);
-
-    /* Game pills */
-    if (games) {
-      var pillsWrap = document.createElement('div');
-      pillsWrap.style.margin = '0.35rem 0';
-      var gameList = games.split(/[;,]/).map(function (g) { return g.trim(); }).filter(Boolean);
-      gameList.forEach(function (g) {
-        var pill = document.createElement('span');
-        pill.className = 'game-pill';
-        pill.textContent = g;
-        pillsWrap.appendChild(pill);
-      });
-      body.appendChild(pillsWrap);
-    }
-
-    /* Message */
-    var msg = document.createElement('p');
-    msg.className = 'forum-message';
-    msg.textContent = message;
-    body.appendChild(msg);
-
-    card.appendChild(body);
-    return card;
-  }
-
-  function renderError(feed) {
-    feed.innerHTML = '<p class="forum-empty">Unable to load feedback. Please try again later.</p>';
-  }
-
-  document.addEventListener('DOMContentLoaded', function () {
-    var feed = document.getElementById('feedback-feed');
-    if (!feed) return;
-
-    try {
-      fetch(SHEET_CSV)
-        .then(function (res) {
-          if (!res.ok) throw new Error('Network response was not ok');
-          return res.text();
         })
-        .then(function (csv) {
-          try {
-            var lines = csv.trim().split('\n');
-            /* Skip header row, reverse so newest first */
-            var dataRows = lines.slice(1).reverse();
+        .catch(() => {
 
-            feed.innerHTML = '';
+            syncMusicUI();
 
-            if (dataRows.length === 0 || (dataRows.length === 1 && dataRows[0].trim() === '')) {
-              feed.innerHTML = '<p class="forum-empty">No feedback submitted yet. Be the first!</p>';
-              return;
+        });
+
+    /*
+     * One click handler.
+     */
+    musicButton.addEventListener(
+        "click",
+        toggleMusic
+    );
+
+    /*
+     * Keep UI synced.
+     */
+    music.addEventListener(
+        "play",
+        syncMusicUI
+    );
+
+    music.addEventListener(
+        "pause",
+        syncMusicUI
+    );
+
+}
+
+
+/* =========================================================
+   TOGGLE MUSIC
+========================================================= */
+
+function toggleMusic(event) {
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    /*
+     * PLAYING → FADE OUT → PAUSE
+     */
+    if (!music.paused) {
+
+        fadeOutMusic(() => {
+
+            music.pause();
+
+            syncMusicUI();
+
+        });
+
+        return;
+    }
+
+
+    /*
+     * PAUSED → PLAY → FADE IN
+     */
+    music.volume = 0;
+
+    music.play()
+        .then(() => {
+
+            fadeInMusic();
+
+        })
+        .catch(() => {
+
+            syncMusicUI();
+
+        });
+
+}
+
+
+/* =========================================================
+   FADE IN
+========================================================= */
+
+function fadeInMusic() {
+
+    clearInterval(
+        music.fadeTimer
+    );
+
+    const targetVolume = 0.35;
+
+    music.volume = 0;
+
+    music.fadeTimer =
+        setInterval(() => {
+
+            if (music.volume >= targetVolume) {
+
+                clearInterval(
+                    music.fadeTimer
+                );
+
+                music.volume =
+                    targetVolume;
+
+                syncMusicUI();
+
+                return;
             }
 
-            dataRows.forEach(function (line) {
-              if (!line.trim()) return;
-              var row = parseCSVLine(line);
-              feed.appendChild(buildCard(row));
-            });
-          } catch (parseErr) {
-            renderError(feed);
-          }
-        })
-        .catch(function () {
-          renderError(feed);
-        });
-    } catch (e) {
-      renderError(feed);
+            music.volume =
+                Math.min(
+                    music.volume + 0.01,
+                    targetVolume
+                );
+
+        }, 40);
+
+}
+
+
+/* =========================================================
+   FADE OUT
+========================================================= */
+
+function fadeOutMusic(callback) {
+
+    clearInterval(
+        music.fadeTimer
+    );
+
+    music.fadeTimer =
+        setInterval(() => {
+
+            if (music.volume <= 0.01) {
+
+                clearInterval(
+                    music.fadeTimer
+                );
+
+                music.volume = 0;
+
+                if (callback) {
+                    callback();
+                }
+
+                return;
+            }
+
+            music.volume =
+                Math.max(
+                    music.volume - 0.01,
+                    0
+                );
+
+        }, 40);
+
+}
+
+
+/* =========================================================
+   SYNCHRONIZE UI
+========================================================= */
+
+function syncMusicUI() {
+
+    if (!music || !musicButton) {
+        return;
     }
-  });
 
-})();
+    const playing =
+        !music.paused &&
+        !music.ended;
 
-/* ------------------------------------------------------------------
-   COMMUNITY TABS
------------------------------------------------------------------- */
-(function () {
-  'use strict';
+    musicButton.classList.toggle(
+        "playing",
+        playing
+    );
 
-  var tabBtns   = document.querySelectorAll('.community-tab');
-  var tabPanels = document.querySelectorAll('.community-panel');
+    const label =
+        musicButton.querySelector(
+            ".music-label"
+        );
 
-  if (!tabBtns.length) return;
+    if (label) {
 
-  function activateTab(targetTab) {
-    tabBtns.forEach(function (btn) {
-      var isActive = btn.dataset.tab === targetTab;
-      btn.classList.toggle('active', isActive);
-      btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        label.textContent =
+            playing
+                ? "Music On"
+                : "Music Off";
+
+    }
+
+}
+/*=========================================================
+ ANIMATED COUNTERS
+=========================================================*/
+
+const counters = document.querySelectorAll("[data-counter]");
+
+let countersStarted = false;
+
+function initialiseCounters() {
+
+    if (!counters.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (!entry.isIntersecting) return;
+
+            if (countersStarted) return;
+
+            countersStarted = true;
+
+            animateCounters();
+
+        });
+
+    }, {
+
+        threshold: 0.45
+
     });
 
-    tabPanels.forEach(function (panel) {
-      var isActive = panel.id === 'tab-' + targetTab;
-      panel.classList.toggle('active', isActive);
-      if (isActive) {
-        panel.removeAttribute('hidden');
-      } else {
-        panel.setAttribute('hidden', '');
-      }
-    });
-  }
+    observer.observe(document.querySelector(".hero"));
 
-  tabBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      activateTab(btn.dataset.tab);
-    });
-  });
+}
 
-})();
+function animateCounters() {
+
+    counters.forEach(counter => {
+
+        const target = Number(counter.dataset.counter);
+
+        const duration = 1800;
+
+        const start = performance.now();
+
+        function update(time) {
+
+            const progress = Math.min((time - start) / duration, 1);
+
+            const value = Math.floor(progress * target);
+
+            counter.textContent = value.toLocaleString();
+
+            if (progress < 1) {
+
+                requestAnimationFrame(update);
+
+            }
+
+            else {
+
+                counter.textContent = target.toLocaleString();
+
+            }
+
+        }
+
+        requestAnimationFrame(update);
+
+    });
+
+}
+
+/*=========================================================
+ REVEAL ON SCROLL
+=========================================================*/
+
+const revealElements = document.querySelectorAll(
+
+    ".game-card, .highlight-card, .story-card, .journey-step, .announcement-card"
+
+);
+
+function initialiseRevealAnimations() {
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (!entry.isIntersecting) return;
+
+            entry.target.classList.add("revealed");
+
+        });
+
+    }, {
+
+        threshold: 0.18
+
+    });
+
+    revealElements.forEach(element => {
+
+        observer.observe(element);
+
+    });
+
+}
+
+/*=========================================================
+ INITIALISE
+=========================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    initialiseCounters();
+
+    initialiseRevealAnimations();
+
+});
+
+/* =========================================================
+   EVERMOTION SCREENSHOT CAROUSEL
+========================================================= */
+
+const featuredImage =
+    document.getElementById("featured-image");
+
+const thumbnails =
+    document.querySelectorAll(".thumb");
+
+const carousel =
+    document.querySelector(".featured-shot");
+
+
+
+let currentImage = 0;
+
+let galleryTimer = null;
+
+let isChangingImage = false;
+
+
+/* =========================================================
+   INITIALISE
+========================================================= */
+
+function initialiseGallery() {
+
+    if (
+        !featuredImage ||
+        thumbnails.length === 0
+    ) {
+        return;
+    }
+
+    /* Thumbnail clicks */
+    thumbnails.forEach((thumb, index) => {
+
+        thumb.addEventListener("click", () => {
+
+            showImage(index, true);
+
+        });
+
+    });
+
+
+    /* MAIN LEFT ARROW */
+    if (previousButton) {
+
+        previousButton.addEventListener(
+            "click",
+            (event) => {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                previousImage();
+
+                startGallery();
+
+            }
+        );
+
+    }
+
+
+    /* MAIN RIGHT ARROW */
+    if (nextButton) {
+
+        nextButton.addEventListener(
+            "click",
+            (event) => {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                nextImage();
+
+                startGallery();
+
+            }
+        );
+
+    }
+
+
+    /* FULLSCREEN */
+    if (fullscreenButton) {
+
+        fullscreenButton.addEventListener(
+            "click",
+            (event) => {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                openLightbox(currentImage);
+
+            }
+        );
+
+    }
+
+
+    /* Start autoplay */
+    startGallery();
+
+
+    /* Pause autoplay when hovering */
+    const gallery =
+        document.querySelector(
+            ".featured-shot"
+        );
+
+    if (gallery) {
+
+        gallery.addEventListener(
+            "mouseenter",
+            stopGallery
+        );
+
+        gallery.addEventListener(
+            "mouseleave",
+            startGallery
+        );
+
+    }
+
+}
+/* =========================================================
+   SHOW IMAGE
+========================================================= */
+
+function showImage(
+    index,
+    userInteraction = false
+) {
+
+    if (
+        !featuredImage ||
+        !thumbnails.length ||
+        isChangingImage
+    ) {
+        return;
+    }
+
+
+    /*
+     * Wrap around
+     */
+    if (index < 0) {
+
+        index =
+            thumbnails.length - 1;
+
+    }
+
+
+    if (
+        index >=
+        thumbnails.length
+    ) {
+
+        index = 0;
+
+    }
+
+
+    currentImage = index;
+
+    const thumbnail =
+        thumbnails[index];
+
+
+    const newSource =
+        thumbnail.dataset.full ||
+        thumbnail.src;
+
+
+    if (
+        featuredImage.src.endsWith(
+            newSource
+        )
+    ) {
+
+        updateActiveThumbnail();
+
+        return;
+
+    }
+
+
+    isChangingImage = true;
+
+
+    /*
+     * Fade out
+     */
+    featuredImage.classList.add(
+        "carousel-fade-out"
+    );
+
+
+    setTimeout(() => {
+
+        featuredImage.src =
+            newSource;
+
+
+        /*
+         * Force browser to render the new
+         * image before fading back in.
+         */
+        requestAnimationFrame(() => {
+
+            featuredImage.classList.remove(
+                "carousel-fade-out"
+            );
+
+            featuredImage.classList.add(
+                "carousel-fade-in"
+            );
+
+
+            setTimeout(() => {
+
+                featuredImage.classList.remove(
+                    "carousel-fade-in"
+                );
+
+                isChangingImage = false;
+
+            }, 450);
+
+        });
+
+
+        updateActiveThumbnail();
+
+
+    }, 250);
+
+
+    /*
+     * User manually changed image:
+     * restart the 5-second timer.
+     */
+    if (userInteraction) {
+
+        startGallery();
+
+    }
+
+}
+
+
+/* =========================================================
+   ACTIVE THUMBNAIL
+========================================================= */
+
+function updateActiveThumbnail() {
+
+    thumbnails.forEach(
+        (thumbnail, index) => {
+
+            thumbnail.classList.toggle(
+                "active",
+                index === currentImage
+            );
+
+        }
+    );
+
+
+}
+
+
+/* =========================================================
+   NEXT / PREVIOUS
+========================================================= */
+
+function nextImage() {
+
+    showImage(
+        currentImage + 1
+    );
+
+}
+
+
+function previousImage() {
+
+    showImage(
+        currentImage - 1
+    );
+
+}
+
+
+/* =========================================================
+   AUTOPLAY
+========================================================= */
+
+function startGallery() {
+
+    stopGallery();
+
+
+    galleryTimer =
+        setInterval(() => {
+
+            nextImage();
+
+        }, 3000);
+
+}
+
+
+function stopGallery() {
+
+    if (galleryTimer) {
+
+        clearInterval(
+            galleryTimer
+        );
+
+        galleryTimer = null;
+
+    }
+
+}
+
+
+/* =========================================================
+   KEYBOARD
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        /*
+         * Don't hijack arrow keys while typing.
+         */
+        const target =
+            event.target;
+
+        if (
+            target.tagName === "INPUT" ||
+            target.tagName === "TEXTAREA"
+        ) {
+
+            return;
+
+        }
+
+
+        if (
+            event.key ===
+            "ArrowRight"
+        ) {
+
+            nextImage();
+
+        }
+
+
+        if (
+            event.key ===
+            "ArrowLeft"
+        ) {
+
+            previousImage();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   PRELOAD
+========================================================= */
+
+function preloadGallery() {
+
+    thumbnails.forEach(
+        (thumbnail) => {
+
+            const image =
+                new Image();
+
+            image.src =
+                thumbnail.dataset.full ||
+                thumbnail.src;
+
+        }
+    );
+
+}
+
+/*=========================================================
+ LIGHTBOX ENGINE
+=========================================================*/
+
+const lightbox =
+    document.getElementById("image-lightbox");
+
+const lightboxImage =
+    document.getElementById("lightbox-image");
+
+const closeLightbox =
+    document.querySelector(".close-lightbox");
+
+const previousButton =
+    document.querySelector(".lightbox-prev");
+
+const nextButton =
+    document.querySelector(".lightbox-next");
+const fullscreenButton =
+    document.querySelector(".fullscreen-btn");
+
+
+function initialiseLightbox() {
+
+    if (!lightbox || !featuredImage) return;
+
+    featuredImage.addEventListener(
+
+        "click",
+
+        () => {
+
+            openLightbox(currentImage);
+
+        }
+
+    );
+
+    thumbnails.forEach((thumb, index) => {
+
+        thumb.addEventListener(
+
+            "dblclick",
+
+            () => {
+
+                openLightbox(index);
+
+            }
+
+        );
+
+    });
+
+    closeLightbox.addEventListener(
+
+        "click",
+
+        closeViewer
+
+    );
+
+    previousButton.addEventListener(
+
+        "click",
+
+        () => {
+
+            navigateLightbox(-1);
+
+        }
+
+    );
+
+    nextButton.addEventListener(
+
+        "click",
+
+        () => {
+
+            navigateLightbox(1);
+
+        }
+
+    );
+
+    lightbox.addEventListener(
+
+        "click",
+
+        (event) => {
+
+            if (event.target === lightbox ||
+                event.target.classList.contains("lightbox-overlay")) {
+
+                closeViewer();
+
+            }
+
+        }
+
+    );
+
+}
+
+/*=========================================================
+ OPEN
+=========================================================*/
+
+function openLightbox(index) {
+
+    currentImage = index;
+
+    lightboxImage.src =
+        thumbnails[index].dataset.full ||
+        thumbnails[index].src;
+
+    lightbox.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+
+}
+
+/*=========================================================
+ CLOSE
+=========================================================*/
+
+function closeViewer() {
+
+    lightbox.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+}
+
+/*=========================================================
+ LIGHTBOX NAVIGATION
+=========================================================*/
+
+function navigateLightbox(direction) {
+
+    currentImage += direction;
+
+    if (currentImage < 0)
+        currentImage = thumbnails.length - 1;
+
+    if (currentImage >= thumbnails.length)
+        currentImage = 0;
+
+    lightboxImage.classList.add("fade");
+
+    setTimeout(() => {
+
+        lightboxImage.src =
+            thumbnails[currentImage].dataset.full ||
+            thumbnails[currentImage].src;
+
+        lightboxImage.classList.remove("fade");
+
+    }, 180);
+
+}
+
+/*=========================================================
+ KEYBOARD SUPPORT
+=========================================================*/
+
+document.addEventListener(
+
+    "keydown",
+
+    (event) => {
+
+        if (!lightbox.classList.contains("active"))
+            return;
+
+        switch (event.key) {
+
+            case "Escape":
+
+                closeViewer();
+
+                break;
+
+            case "ArrowRight":
+
+                navigateLightbox(1);
+
+                break;
+
+            case "ArrowLeft":
+
+                navigateLightbox(-1);
+
+                break;
+
+        }
+
+    }
+
+);
+
+/*=========================================================
+ TOUCH SUPPORT
+=========================================================*/
+
+let touchStartX = 0;
+
+let touchEndX = 0;
+
+lightbox?.addEventListener(
+
+    "touchstart",
+
+    (event) => {
+
+        touchStartX = event.changedTouches[0].clientX;
+
+    }
+
+);
+
+lightbox?.addEventListener(
+
+    "touchend",
+
+    (event) => {
+
+        touchEndX = event.changedTouches[0].clientX;
+
+        const difference = touchEndX - touchStartX;
+
+        if (difference > 80) {
+
+            navigateLightbox(-1);
+
+        }
+
+        else if (difference < -80) {
+
+            navigateLightbox(1);
+
+        }
+
+    }
+
+);
+
+/*=========================================================
+ COMMUNITY TABS
+=========================================================*/
+
+const communityTabs =
+    document.querySelectorAll(".community-tab");
+
+const communityPanels =
+    document.querySelectorAll(".community-panel");
+
+function initialiseCommunityTabs() {
+
+    if (!communityTabs.length) return;
+
+    communityTabs.forEach(tab => {
+
+        tab.addEventListener("click", () => {
+
+            const selectedTab = tab.dataset.tab;
+
+            communityTabs.forEach(button => {
+
+                const isActive =
+                    button === tab;
+
+                button.classList.toggle(
+                    "active",
+                    isActive
+                );
+
+                button.setAttribute(
+                    "aria-selected",
+                    isActive ? "true" : "false"
+                );
+
+            });
+
+            communityPanels.forEach(panel => {
+
+                const isActive =
+                    panel.id === `tab-${selectedTab}`;
+
+                panel.classList.toggle(
+                    "active",
+                    isActive
+                );
+
+                panel.hidden = !isActive;
+
+            });
+
+        });
+
+    });
+
+}
+
+/* =========================================================
+   MAIN CAROUSEL ARROW CONTROLS
+========================================================= */
+
+document.addEventListener("click", function (event) {
+
+    const previous =
+        event.target.closest(".carousel-prev");
+
+    const next =
+        event.target.closest(".carousel-next");
+
+    if (previous) {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        previousImage();
+
+        startGallery();
+
+        return;
+    }
+
+    if (next) {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        nextImage();
+
+        startGallery();
+
+        return;
+    }
+
+});
