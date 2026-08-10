@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EverMotion | Move. Recover. Thrive.</title>
+
+    <meta name="description"
+          content="EverMotion is a gesture-controlled rehabilitation game suite that transforms recovery into an engaging gaming experience.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="css/game.css">
+</head>
+
+<body class="intro-active">
+<!-- ======================================================
+     GAME START INTRO
+====================================================== -->
+
+<div id="game-intro">
+
+    <!-- Space Background Video -->
+    <video
+        id="intro-video"
+        autoplay
+        muted
+        loop
+        playsinline>
+
+        <source
+            src="assets/space.mp4"
+            type="video/mp4">
+
+    </video>
+
+    <!-- Dark atmospheric overlay -->
+    <div class="intro-overlay"></div>
+
+    <!-- Floating Robot -->
+    <img
+        class="intro-robot"
+        src="assets/robotfly.png"
+        alt="Aegis">
+
+    <!-- Start Interface -->
+    <div class="intro-content">
+
+        <div class="intro-title">
+            EVER<span>MOTION</span>
+        </div>
+
+        <p class="intro-subtitle">
+            MOVE. RECOVER. THRIVE.
+        </p>
+
+        <button
+            id="start-game"
+            class="start-button">
+
+            START
+
+        </button>
+
+    </div>
+
+</div>
+</body>
+<body>
+
+
+
+<!-- ======================================================
+CURSOR GLOW
+======================================================= -->
+
+<div class="cursor-glow"></div>
+
+<!-- ======================================================
+PARTICLES
+======================================================= -->
+
+<div id="particles"></div>
+
+<!-- ======================================================
+SCROLL PROGRESS
+======================================================= -->
+
+<div id="scroll-progress"></div>
+
+
+<!-- ======================================================
+BACKGROUND MUSIC
+====================================================== -->
+
+<audio
+    id="backgroundMusic"
+    autoplay
+    loop
+    preload="auto">
+
+    <source
+        src="assets/evermotion.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+<!-- ======================================================
+MUSIC TOGGLE
+====================================================== -->
+
+<button
+    class="music-toggle"
+    id="music-toggle"
+    type="button"
+    aria-label="Toggle background music">
+
+    <span class="music-control-icon">
+
+        <span class="music-bar music-bar-left"></span>
+
+        <svg
+            class="music-note"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+
+            <path d="M9 18V5l12-2v13"/>
+            <circle cx="6" cy="18" r="3"/>
+            <circle cx="18" cy="16" r="3"/>
+
+        </svg>
+
+        <span class="music-bar music-bar-right"></span>
+
+    </span>
+
+    <span class="music-label">
+        Music On
+    </span>
+
+</button>
+
+
+<!-- ======================================================
+NAVIGATION
+======================================================= -->
+
+<nav class="game-nav" id="game-nav">
+
+    <div class="nav-container">
+
+        <div class="nav-logo">
+
+            <span class="logo-mark">
+                ◆
+            </span>
+
+            <span class="logo-text">
+                EverMotion
+            </span>
+
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Project Website
+                </a>
+            </li>
+
+            <li>
+                <a href="#screenshots">
+                    Gameplay
+                </a>
+            </li>
+
+            <li>
+                <a href="#community">
+                    Community
+                </a>
+            </li>
+
+            <li>
+                <a href="#download">
+                    Download
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+<!-- ======================================================
+HERO
+======================================================= -->
+
+<section class="hero" id="hero">
+
+    <!-- Background Video -->
+
+    <video
+            class="hero-video"
+            autoplay
+            muted
+            loop
+            playsinline>
+
+        <source src="assets/IntroVideo/openingVideo.mp4"
+                type="video/mp4">
+
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-grid"></div>
+
+    <div class="hero-noise"></div>
+
+    <!-- Spotlight -->
+
+    <div class="hero-spotlight"></div>
+
+    <!-- Floating Shapes -->
+
+    <div class="floating-orbs">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div class="hero-container">
+
+        <div class="hero-left">
+
+            <span class="hero-tag">
+
+                Gesture-Controlled Rehabilitation
+
+            </span>
+
+            <h1 class="hero-title">
+
+                <span>Move.</span>
+
+                <span>Recover.</span>
+
+                <span>Thrive.</span>
+
+            </h1>
+
+            <p class="hero-description">
+
+                EverMotion transforms rehabilitation into an immersive
+                adventure through gesture-controlled mini-games powered
+                by computer vision and intelligent motion tracking.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#download"
+                   class="btn btn-primary">
+
+                    Download Now
+
+                </a>
+
+                <a href="#screenshots"
+                   class="btn btn-secondary">
+
+                    Watch Gameplay
+
+                </a>
+
+            </div>
+
+        
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+
+        <div class="hero-right">
+            <div class="hero-robot">
+
+              <div class="robot-glow"></div>
+
+                <img
+                  src="assets/robot_together.png"
+                  alt="EverMotion Robot">
+
+              </div>
+
+    
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Scroll Indicator -->
+
+    <div class="scroll-indicator">
+
+        <span>
+
+            Discover More
+
+        </span>
+
+        <div class="mouse">
+
+            <div class="wheel"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+SCREENSHOTS SECTION
+======================================================= -->
+<!-- ======================================================
+SCREENSHOTS SHOWCASE
+======================================================= -->
+
+<div class="world-background">
+
+<section id="screenshots" class="showcase-section">
+
+    <div class="section-heading">
+
+        <span class="section-tag">
+            Gameplay Preview
+        </span>
+
+        <h2>
+            Experience EverMotion
+        </h2>
+
+        <p>
+
+            Explore the rehabilitation journey through immersive
+            environments, gesture-controlled gameplay and
+            intelligent motion tracking.
+
+        </p>
+
+    </div>
+
+    <!-- Featured Screenshot -->
+
+    <div class="featured-shot">
+
+    <button
+        class="carousel-arrow carousel-prev"
+        type="button"
+        aria-label="Previous screenshot">
+        ❮
+    </button>
+
+    <img
+        id="featured-image"
+        src="theme/Main Menu.png"
+        alt="EverMotion Main Menu">
+
+    
+
+<button
+    class="carousel-arrow carousel-next"
+    type="button"
+    aria-label="Next screenshot">
+    ❯
+</button>
+
+    <button
+        class="fullscreen-btn"
+        type="button"
+        aria-label="Open fullscreen">
+        ⛶
+    </button>
+
+</div>
+    <!-- Thumbnail Gallery -->
+
+    <div class="thumbnail-gallery">
+
+        <img
+            class="thumb active"
+            src="theme/Main Menu.png"
+            data-full="theme/Main Menu.png"
+            alt="Main Menu">
+
+        <img
+            class="thumb"
+            src="theme/Player Main Hub.png"
+            data-full="theme/Player Main Hub.png"
+            alt="Player Hub">
+
+        <img
+            class="thumb"
+            src="theme/Story Map - Winding Path.png"
+            data-full="theme/Story Map - Winding Path.png"
+            alt="Story">
+
+        <img
+            class="thumb"
+            src="theme/Game Assignment Carousel.png"
+            data-full="theme/Game Assignment Carousel.png"
+            alt="Assignment">
+
+        <img
+            class="thumb"
+            src="theme/Game Selection Grid.png"
+            data-full="theme/Game Selection Grid.png"
+            alt="Selection">
+
+        <img
+            class="thumb"
+            src="theme/Mini Game Tutorial.png"
+            data-full="theme/Mini Game Tutorial.png"
+            alt="Tutorial">
+
+        <img
+            class="thumb"
+            src="theme/Story complete.png"
+            data-full="theme/Story complete.png"
+            alt="Story Complete">
+
+        <img
+            class="thumb"
+            src="theme/Summary - List view.png"
+            data-full="theme/Summary - List view.png"
+            alt="Summary">
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+THE STORY
+====================================================== -->
+
+<section id="story" class="story">
+
+    <div class="story-glow"></div>
+
+    <div class="section-header">
+
+        <span class="section-tag">
+
+            Story
+
+        </span>
+
+        <h2>
+
+            A Journey Beyond Recovery
+
+        </h2>
+
+    </div>
+
+    <div class="story-content reveal-story">
+
+        <p class="story-lead">
+
+            In the year <span>2148</span>, rehabilitation has evolved
+            beyond hospital walls. Patients no longer endure repetitive
+            exercises—they enter <strong>EverMotion</strong>, an immersive
+            virtual world where every movement shapes reality.
+
+        </p>
+
+        <div class="story-divider"></div>
+
+        <p>
+
+            Once powered by the mysterious <strong>Lumina Core</strong>,
+            EverMotion was created as a sanctuary where hope and
+            technology worked together to restore both body and spirit.
+            But when the Core shattered, its energy scattered across the
+            virtual world, leaving entire districts without light.
+
+        </p>
+
+        <p>
+
+            Guided by two intelligent rehabilitation robots,
+            players restore each fragment through movement-based
+            challenges. Every successful therapy session rebuilds
+            both the world around them and their own confidence.
+
+        </p>
+
+        <div class="story-quote">
+
+            Every movement heals two worlds, 
+            the one around you and the one within you.
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+MEET THE GUARDIANS
+====================================================== -->
+
+<section id="guardians" class="guardians">
+
+    <div class="section-header">
+
+        <span class="section-tag">
+
+            Characters
+
+        </span>
+
+        <h2>
+
+            Meet The Robots
+
+        </h2>
+
+    </div>
+
+    <div class="guardian-container">
+
+        <button
+            class="guardian-arrow"
+            id="guardian-prev">
+
+            ❮
+
+        </button>
+
+        <div class="guardian-card">
+
+            <img
+                id="guardian-image"
+                src="assets/aegis.png"
+                alt="Guardian">
+
+            <div class="guardian-info">
+
+                <h3 id="guardian-name">
+
+                    AEGIS
+
+                </h3>
+
+                <span
+                    class="guardian-role"
+                    id="guardian-role">
+
+                    Lead Rehabilitation Guardian
+
+                </span>
+
+                <p
+                    class="guardian-story"
+                    id="guardian-story">
+
+                    Aegis guides every player through difficult
+                    rehabilitation challenges. His adaptive AI
+                    analyses movement and provides encouragement,
+                    proving that every step forward is a victory.
+
+                </p>
+
+                <blockquote
+                    id="guardian-quote">
+
+                    "One movement today becomes strength tomorrow."
+
+                </blockquote>
+
+            </div>
+
+        </div>
+
+        <button
+            class="guardian-arrow"
+            id="guardian-next">
+
+            ❯
+
+        </button>
+
+    </div>
+
+</section>
+
+<div class="guardian-dots">
+
+    <span class="guardian-dot active"></span>
+
+    <span class="guardian-dot"></span>
+
+</div>
+
+
+<!-- ======================================================
+LIGHTBOX
+======================================================= -->
+
+<div id="image-lightbox">
+
+    <div class="lightbox-overlay"></div>
+
+    <button class="close-lightbox">
+        ✕
+    </button>
+
+    <button class="lightbox-prev">
+        ❮
+    </button>
+
+    <div class="lightbox-content">
+
+        <img
+            id="lightbox-image"
+            src=""
+            alt="Screenshot">
+
+    </div>
+
+    <button class="lightbox-next">
+        ❯
+    </button>
+
+</div>
+</div>
+
+<!-- ======================================================
+PART 2A ENDS
+PART 2B STARTS WITH COMMUNITY
+======================================================= -->
+<!-- ======================================================
+COMMUNITY HUB
+======================================================= -->
+
+<section id="community" class="community-section">
+
+    
+    <div class="section-heading">
+
+        <span class="section-tag">
+            Community
+        </span>
+
+        <h2>
+
+            Connect With EverMotion
+
+        </h2>
+
+        <p>
+
+            Stay updated with development progress, read player
+            experiences and share your rehabilitation journey.
+
+        </p>
+
+    </div>
+
+    <!-- Community Navigation -->
+
+    <div class="community-tabs">
+
+        <button
+            class="community-tab active"
+            data-tab="announcements"
+            aria-selected="true">
+            📢 Announcements
+        </button>
+
+        <button
+            class="community-tab"
+            data-tab="forum"
+            aria-selected="false">
+            💬 Player Forum
+        </button>
+    </div>
+
+    <!-- ======================================================
+    ANNOUNCEMENTS
+    ====================================================== -->
+
+    <div
+    class="community-panel active"
+    id="tab-announcements">
+
+    <div class="announcement-carousel">
+
+        <button
+            class="announcement-arrow"
+            id="announcement-prev">
+
+            ❮
+
+        </button>
+
+        <div class="announcement-slide">
+
+            <div class="announcement-image">
+
+                <img
+                    id="announcement-image"
+                    src="assets/update1.png"
+                    alt="Announcement">
+
+            </div>
+
+            <div class="announcement-content">
+
+                <span
+                    class="announcement-badge"
+                    id="announcement-type">
+
+                    Latest Update
+
+                </span>
+
+                <h2
+                    id="announcement-title">
+
+                    Version 0.4 Preview
+
+                </h2>
+
+                <p
+                    id="announcement-description">
+
+                    New rehabilitation missions,
+                    improved adaptive AI,
+                    and Guardian enhancements.
+
+                </p>
+
+                <span
+                    class="announcement-date"
+                    id="announcement-date">
+
+                    August 2026
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <button
+            class="announcement-arrow"
+            id="announcement-next">
+
+            ❯
+
+        </button>
+
+    </div>
+
+</div>
+<!-- ======================================================
+PLAYER FORUM
+====================================================== -->
+
+<div
+    class="community-panel"
+    id="tab-forum">
+
+    <div class="forum-header">
+
+        <div>
+
+            <h3>
+
+                Community Feedback
+
+            </h3>
+
+            <p>
+
+                Read the latest experiences shared by our players.
+
+            </p>
+
+        </div>
+
+        <a
+            href="https://forms.gle/CRXrD1M1pvdfCarg8"
+            target="_blank"
+            class="btn btn-primary">
+
+            Submit Feedback
+
+        </a>
+
+    </div>
+
+    <!-- Live Feedback Container -->
+
+ <div
+    id="feedback-feed"
+    class="announcement-grid">
+
+    <article class="announcement-card">
+
+        <span class="announcement-badge">
+            Loading...
+        </span>
+
+        <h3>Fetching Community Feedback</h3>
+
+        <p>Please wait while we load the latest player feedback.</p>
+
+        <span class="announcement-date">
+            EverMotion
+        </span>
+
+    </article>
+
+</div>
+</div>
+</section>
+<!-- ======================================================
+PROJECT STORY
+
+
+<section class="story-section">
+
+    <div class="section-heading">
+
+        <span class="section-tag">
+
+            Our Mission
+
+        </span>
+
+        <h2>
+
+            Why EverMotion?
+
+        </h2>
+
+    </div>
+
+    <div class="story-grid">
+
+        <div class="story-card">
+
+            <div class="story-number">
+
+                01
+
+            </div>
+
+            <h3>
+
+                The Challenge
+
+            </h3>
+
+            <p>
+
+                Rehabilitation exercises can become repetitive,
+                reducing motivation and slowing recovery progress.
+
+            </p>
+
+        </div>
+
+        <div class="story-card">
+
+            <div class="story-number">
+
+                02
+
+            </div>
+
+            <h3>
+
+                Our Solution
+
+            </h3>
+
+            <p>
+
+                Turn physical therapy into engaging adventures
+                where every movement contributes to gameplay.
+
+            </p>
+
+        </div>
+
+        <div class="story-card">
+
+            <div class="story-number">
+
+                03
+
+            </div>
+
+            <h3>
+
+                Smart Technology
+
+            </h3>
+
+            <p>
+
+                MediaPipe hand tracking analyses movement
+                without requiring wearable sensors.
+
+            </p>
+
+        </div>
+
+        <div class="story-card">
+
+            <div class="story-number">
+
+                04
+
+            </div>
+
+            <h3>
+
+                Better Recovery
+
+            </h3>
+
+            <p>
+
+                Patients remain motivated while therapists
+                receive objective movement information.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+======================================================= -->
+
+<!-- ======================================================
+REHABILITATION JOURNEY
+======================================================= -->
+
+<section class="journey-section">
+
+    <div class="section-heading">
+
+        <span class="section-tag">
+
+            Patient Journey
+
+        </span>
+
+        <h2>
+
+            Your Rehabilitation Adventure
+
+        </h2>
+
+    </div>
+
+    <div class="journey-timeline">
+
+        <div class="journey-step">
+
+            <div class="journey-icon">
+
+                ⬇
+
+            </div>
+
+            <h3>
+
+                Download
+
+            </h3>
+
+            <p>
+
+                Install EverMotion on your PC.
+
+            </p>
+
+        </div>
+
+        <div class="journey-step">
+
+            <div class="journey-icon">
+
+                👤
+
+            </div>
+
+            <h3>
+
+                Create Profile
+
+            </h3>
+
+            <p>
+
+                Configure your rehabilitation programme.
+
+            </p>
+
+        </div>
+
+        
+
+        <div class="journey-step">
+
+            <div class="journey-icon">
+
+                🎯
+
+            </div>
+
+            <h3>
+
+                Calibration
+
+            </h3>
+
+            <p>
+
+                Detect your movement range.
+
+            </p>
+
+        </div>
+
+       
+        <div class="journey-step">
+
+            <div class="journey-icon">
+
+                🎮
+
+            </div>
+
+            <h3>
+
+                Play Therapy Games
+
+            </h3>
+
+            <p>
+
+                Complete engaging rehabilitation missions.
+
+            </p>
+
+        </div>
+
+        
+
+        <div class="journey-step">
+
+            <div class="journey-icon">
+
+                📈
+
+            </div>
+
+            <h3>
+
+                Track Progress
+
+            </h3>
+
+            <p>
+
+                Review your improvement over time.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+PART 2B ENDS
+PART 3 CONTINUES WITH:
+
+• Download Section (Redesign)
+• Technology Stack Showcase
+• FAQ Accordion
+• Premium Footer
+• Back-to-top Button
+• Closing body/html tags
+
+======================================================= -->
+<!-- ======================================================
+DOWNLOAD
+======================================================= -->
+
+<section id="download" class="download-section">
+
+    <div class="download-card">
+
+        <span class="section-tag">
+
+            Download
+
+        </span>
+
+        <h2>
+
+            Begin Your Recovery Journey
+
+        </h2>
+
+        <p>
+
+            Download EverMotion and transform rehabilitation
+            into an enjoyable gaming experience powered by
+            intelligent gesture recognition.
+
+        </p>
+
+        <div class="download-buttons">
+
+            <a href="#"
+               class="btn btn-primary">
+
+                Download for Windows
+
+            </a>
+
+            <a href="#screenshots"
+               class="btn btn-secondary">
+
+                View Gameplay
+
+            </a>
+
+        </div>
+
+        <div class="download-note">
+
+            Windows 10/11 • 64-bit • Free Academic Prototype
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+TECH STACK
+
+
+<section class="tech-section">
+
+    <div class="section-heading">
+
+        <span class="section-tag">
+
+            Built With
+
+        </span>
+
+        <h2>
+
+            Technology Stack
+
+        </h2>
+
+    </div>
+
+    <div class="tech-grid">
+
+        <div class="tech-card">
+
+            <div class="tech-icon">
+
+                🤖
+
+            </div>
+
+            <h3>
+
+                MediaPipe
+
+            </h3>
+
+            <p>
+
+                Real-time hand landmark detection.
+
+            </p>
+
+        </div>
+
+        <div class="tech-card">
+
+            <div class="tech-icon">
+
+                👁️
+
+            </div>
+
+            <h3>
+
+                OpenCV
+
+            </h3>
+
+            <p>
+
+                Computer vision and image processing.
+
+            </p>
+
+        </div>
+
+        <div class="tech-card">
+
+            <div class="tech-icon">
+
+                🐍
+
+            </div>
+
+            <h3>
+
+                Python
+
+            </h3>
+
+            <p>
+
+                Core game logic and AI processing.
+
+            </p>
+
+        </div>
+
+        <div class="tech-card">
+
+            <div class="tech-icon">
+
+                🎮
+
+            </div>
+
+            <h3>
+
+                PyGame
+
+            </h3>
+
+            <p>
+
+                Interactive rehabilitation gameplay.
+
+            </p>
+
+        </div>
+
+        <div class="tech-card">
+
+            <div class="tech-icon">
+
+                💾
+
+            </div>
+
+            <h3>
+
+                SQLite
+
+            </h3>
+
+            <p>
+
+                User profile and progress storage.
+
+            </p>
+
+        </div>
+
+        <div class="tech-card">
+
+            <div class="tech-icon">
+
+                🪟
+
+            </div>
+
+            <h3>
+
+                Windows
+
+            </h3>
+
+            <p>
+
+                Optimised desktop experience.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+======================================================= -->
+<!-- ======================================================
+FAQ
+======================================================= -->
+
+<section class="faq-section">
+
+    <div class="section-heading">
+
+        <span class="section-tag">
+
+            FAQ
+
+        </span>
+
+        <h2>
+
+            Frequently Asked Questions
+
+        </h2>
+
+    </div>
+
+    <div class="faq-container">
+
+        <details>
+
+            <summary>
+
+                Is EverMotion free?
+
+            </summary>
+
+            <p>
+
+                Yes. This prototype was developed for academic
+                purposes and can be downloaded free of charge.
+
+            </p>
+
+        </details>
+
+        <details>
+
+            <summary>
+
+                What hardware is required?
+
+            </summary>
+
+            <p>
+
+                A Windows PC with a webcam capable of
+                running MediaPipe hand tracking.
+
+            </p>
+
+        </details>
+
+        <details>
+
+            <summary>
+
+                Does EverMotion replace physiotherapy?
+
+            </summary>
+
+            <p>
+
+                No. EverMotion is designed as a complementary
+                rehabilitation tool to increase motivation.
+
+            </p>
+
+        </details>
+
+        <details>
+
+            <summary>
+
+                Can therapists monitor progress?
+
+            </summary>
+
+            <p>
+
+                Future versions aim to include therapist
+                dashboards and detailed analytics.
+
+            </p>
+
+        </details>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+FOOTER
+======================================================= -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+
+            <h2>
+
+                EverMotion
+
+            </h2>
+
+            <p>
+
+                Move. Recover. Thrive.
+
+            </p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <div>
+
+                <h4>
+
+                    Website
+
+                </h4>
+
+                <a href="#hero">Home</a>
+                <a href="#screenshots">Gameplay</a>
+                <a href="#community">Community</a>
+                <a href="#download">Download</a>
+
+            </div>
+
+            <div>
+
+                <h4>
+
+                    Project
+
+                </h4>
+
+                <a href="#">
+
+                    Documentation
+
+                </a>
+
+                <a href="#">
+
+                    User Manual
+
+                </a>
+
+                <a href="#">
+
+                    Privacy
+
+                </a>
+
+            </div>
+
+            <div>
+
+                <h4>
+
+                    Contact
+
+                </h4>
+
+                <a href="mailto:team@evermotion.com">
+
+                    team@evermotion.com
+
+                </a>
+
+                <a href="#">
+
+                    GitHub
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        © 2026 EverMotion
+
+        <span>
+
+            Built with ❤️ using Unity 
+
+        </span>
+
+    </div>
+
+</footer>
+
+<!-- ======================================================
+BACK TO TOP
+======================================================= -->
+
+<button id="backToTop">
+
+    ↑
+
+</button>
+
+<!-- ======================================================
+SCRIPTS
+======================================================= -->
+
+<script src="js/game.js"></script>
+
+</body>
+
+</html>
