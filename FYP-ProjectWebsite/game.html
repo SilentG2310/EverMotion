@@ -18,6 +18,71 @@
     <link rel="stylesheet" href="css/game.css">
 </head>
 
+<body class="intro-active">
+<!-- ======================================================
+     GAME START INTRO
+====================================================== -->
+
+<div id="game-intro">
+
+    <!-- Background -->
+    <video
+        id="intro-video"
+        autoplay
+        muted
+        loop
+        playsinline>
+        <source src="assets/space.mp4" type="video/mp4">
+    </video>
+
+    <div class="intro-overlay"></div>
+
+    <!-- Decorative atmosphere -->
+    <div class="intro-stars"></div>
+    <div class="intro-glow"></div>
+
+    <!-- Main content -->
+    <div class="intro-content">
+
+        <span class="intro-status">
+            ◈ SYSTEM ONLINE
+        </span>
+
+        <h1 class="intro-logo">
+            <span>EVER</span><span>MOTION</span>
+        </h1>
+
+        <p class="intro-tagline">
+            REHAB. RECHARGE. RISE.
+        </p>
+
+        <div class="intro-core">
+
+            <div class="core-ring ring-1"></div>
+            <div class="core-ring ring-2"></div>
+            <div class="core-ring ring-3"></div>
+
+            <button id="start-game">
+                START
+            </button>
+
+        </div>
+
+        <div class="intro-system">
+            <span>◈ MOTION SYNC</span>
+            <span>◈ ENERGY LEVEL</span>
+            <span>◈ MOVEMENT CALIBRATION</span>
+        </div>
+
+    </div>
+
+    <!-- Flying Aegis -->
+    <img
+        class="intro-robot"
+        src="assets/robotfly.png"
+        alt="Aegis">
+
+</div></body>
 <body>
 
 
@@ -167,7 +232,7 @@ HERO
             loop
             playsinline>
 
-        <source src="assets/IntroVideo/openingVideo.mp4"
+        <source src="assets/evermotionbg.mp4"
                 type="video/mp4">
 
     </video>
@@ -198,7 +263,7 @@ HERO
     <div class="hero-container">
 
         <div class="hero-left">
-
+            <!-- ========           
             <span class="hero-tag">
 
                 Gesture-Controlled Rehabilitation
@@ -222,7 +287,7 @@ HERO
                 by computer vision and intelligent motion tracking.
 
             </p>
-
+            =======-->
             <div class="hero-buttons">
 
                 <a href="#download"
@@ -241,21 +306,11 @@ HERO
 
             </div>
 
-            <div class="hero-badges">
-
-                <span>Windows 10/11</span>
-
-                <span>MediaPipe</span>
-
-                <span>OpenCV</span>
-
-
-
-            </div>
+        
 
         </div>
 
-        <!-- RIGHT SIDE -->
+        <!-- ========= RIGHT SIDE 
 
         <div class="hero-right">
             <div class="hero-robot">
@@ -268,111 +323,12 @@ HERO
 
               </div>
 
-            <div class="hero-card">
-
-                <div class="card-header">
-
-                    Live Statistics
-
-                </div>
-
-                <div class="stats-grid">
-
-                  <div class="stat-card">
-
-                      <h2 data-counter="100">0</h2>
-
-                      <p>Patients Assisted</p>
-
-                  </div>
-
-                  <div class="stat-card">
-
-                      <h2 data-counter="98">0</h2>
-
-                      <p>Success Rate</p>
-
-                  </div>
-
-                  <div class="stat-card">
-
-                      <h2 data-counter="12">0</h2>
-
-                      <p>Mini Games</p>
-
-                  </div>
-
-                  <div class="stat-card">
-
-                      <h2 data-counter="2">0</h2>
-
-                      <p>Ways to play</p>
-
-                  </div>
-
-                        <p>
-
-                            Mini Games
-
-                        </p>
-
-                    </div>
-
-                    <div class="stat-card">
-
-                        <h2 class="counter"
-                            data-target="3">
-
-                            0
-
-                        </h2>
-
-                        <p>
-
-                            Therapy Modules
-
-                        </p>
-
-                    </div>
-
-                    <div class="stat-card">
-
-                        <h2 class="counter"
-                            data-target="100">
-
-                            0
-
-                        </h2>
-
-                        <p>
-
-                            Gesture Tracking %
-
-                        </p>
-
-                    </div>
-
-                    <div class="stat-card">
-
-                        <h2>
-
-                            AI
-
-                        </h2>
-
-                        <p>
-
-                            Motion Analysis
-
-                        </p>
-
-                    </div>
-
-                </div>
+    
 
             </div>
 
         </div>
+        ==========-->
 
     </div>
 
@@ -397,13 +353,13 @@ HERO
 </section>
 
 <!-- ======================================================
-END OF PART 1
-PART 2 STARTS WITH:
 SCREENSHOTS SECTION
 ======================================================= -->
 <!-- ======================================================
 SCREENSHOTS SHOWCASE
 ======================================================= -->
+
+<div class="world-background">
 
 <section id="screenshots" class="showcase-section">
 
@@ -517,260 +473,169 @@ SCREENSHOTS SHOWCASE
 </section>
 
 <!-- ======================================================
-GAMEPLAY FEATURES
+THE STORY
+====================================================== -->
 
+<section id="story" class="story">
 
-<section class="gameplay-section">
+    <div class="story-glow"></div>
 
-    <div class="section-heading">
+    <div class="section-header">
 
         <span class="section-tag">
 
-            Mini Games
+            Story
 
         </span>
 
         <h2>
 
-            Purpose Built For Rehabilitation
+            A Journey Beyond Recovery
 
         </h2>
 
     </div>
 
-    <div class="game-grid">
+    <div class="story-content reveal-story">
 
-        <!-- CARD 
+        <p class="story-lead">
 
-        <div class="game-card">
+            In the year <span>2148</span>, rehabilitation has evolved
+            beyond hospital walls. Patients no longer endure repetitive
+            exercises—they enter <strong>EverMotion</strong>, an immersive
+            virtual world where every movement shapes reality.
 
-            <div class="game-image">
+        </p>
 
-                <img
-                    src="theme/Game Assignment Carousel.png"
-                    alt="Sky Reach">
+        <div class="story-divider"></div>
 
-            </div>
+        <p>
 
-            <div class="game-info">
+            Once powered by the mysterious <strong>Lumina Core</strong>,
+            EverMotion was created as a sanctuary where hope and
+            technology worked together to restore both body and spirit.
+            But when the Core shattered, its energy scattered across the
+            virtual world, leaving entire districts without light.
 
-                <h3>
+        </p>
 
-                    Sky Reach Protocol
+        <p>
 
-                </h3>
+            Guided by two intelligent rehabilitation robots,
+            players restore each fragment through movement-based
+            challenges. Every successful therapy session rebuilds
+            both the world around them and their own confidence.
 
-                <p>
+        </p>
 
-                    Raise your arm to collect floating energy nodes
-                    while improving shoulder mobility through
-                    engaging rehabilitation exercises.
+        <div class="story-quote">
 
-                </p>
-
-                <div class="game-tags">
-
-                    <span>Shoulder</span>
-
-                    <span>Gesture</span>
-
-                    <span>Adventure</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        !-- CARD --
-
-        <div class="game-card">
-
-            <div class="game-image">
-
-                <img
-                    src="theme/Mini Game Tutorial.png"
-                    alt="Micro Node">
-
-            </div>
-
-            <div class="game-info">
-
-                <h3>
-
-                    Micro Node Activation
-
-                </h3>
-
-                <p>
-
-                    Improve finger precision by activating
-                    tiny energy nodes with accurate hand
-                    movements tracked in real time.
-
-                </p>
-
-                <div class="game-tags">
-
-                    <span>Finger</span>
-
-                    <span>Precision</span>
-
-                    <span>MediaPipe</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-      !-- CARD --
-
-        <div class="game-card">
-
-            <div class="game-image">
-
-                <img
-                    src="theme/Game Selection Grid.png"
-                    alt="Future Games">
-
-            </div>
-
-            <div class="game-info">
-
-                <h3>
-
-                    More Missions Coming
-
-                </h3>
-
-                <p>
-
-                    Unlock new rehabilitation adventures
-                    targeting different joints and movement
-                    patterns as EverMotion expands.
-
-                </p>
-
-                <div class="game-tags">
-
-                    <span>Future</span>
-
-                    <span>Expansion</span>
-
-                    <span>Story Mode</span>
-
-                </div>
-
-            </div>
+            Every movement heals two worlds, 
+            the one around you and the one within you.
 
         </div>
 
     </div>
 
 </section>
-======================================================= -->
 
 <!-- ======================================================
-TECH HIGHLIGHTS
+MEET THE GUARDIANS
+====================================================== -->
 
+<section id="guardians" class="guardians">
 
-<section class="highlights-section">
+    <div class="section-header">
 
-    <div class="highlight-card">
+        <span class="section-tag">
 
-        <div class="highlight-icon">
+            Characters
 
-            🖐️
+        </span>
 
-        </div>
+        <h2>
 
-        <h3>
+            Meet The Robots
 
-            Gesture Recognition
-
-        </h3>
-
-        <p>
-
-            Powered by MediaPipe for accurate,
-            marker-free hand tracking.
-
-        </p>
+        </h2>
 
     </div>
 
-    <div class="highlight-card">
+    <div class="guardian-container">
 
-        <div class="highlight-icon">
+        <button
+            class="guardian-arrow"
+            id="guardian-prev">
 
-            🎮
+            ❮
+
+        </button>
+
+        <div class="guardian-card">
+
+            <img
+                id="guardian-image"
+                src="assets/aegis.png"
+                alt="Guardian">
+
+            <div class="guardian-info">
+
+                <h3 id="guardian-name">
+
+                    AEGIS
+
+                </h3>
+
+                <span
+                    class="guardian-role"
+                    id="guardian-role">
+
+                    Lead Rehabilitation Guardian
+
+                </span>
+
+                <p
+                    class="guardian-story"
+                    id="guardian-story">
+
+                    Aegis guides every player through difficult
+                    rehabilitation challenges. His adaptive AI
+                    analyses movement and provides encouragement,
+                    proving that every step forward is a victory.
+
+                </p>
+
+                <blockquote
+                    id="guardian-quote">
+
+                    "One movement today becomes strength tomorrow."
+
+                </blockquote>
+
+            </div>
 
         </div>
 
-        <h3>
+        <button
+            class="guardian-arrow"
+            id="guardian-next">
 
-            Gamified Therapy
+            ❯
 
-        </h3>
-
-        <p>
-
-            Rehabilitation designed as fun,
-            rewarding mini-games.
-
-        </p>
-
-    </div>
-
-    <div class="highlight-card">
-
-        <div class="highlight-icon">
-
-            📈
-
-        </div>
-
-        <h3>
-
-            Progress Tracking
-
-        </h3>
-
-        <p>
-
-            Monitor performance and
-            rehabilitation milestones.
-
-        </p>
-
-    </div>
-
-    <div class="highlight-card">
-
-        <div class="highlight-icon">
-
-            🤖
-
-        </div>
-
-        <h3>
-
-            AI Assisted
-
-        </h3>
-
-        <p>
-
-            Intelligent motion analysis
-            helps guide every session.
-
-        </p>
+        </button>
 
     </div>
 
 </section>
-======================================================= -->
+
+<div class="guardian-dots">
+
+    <span class="guardian-dot active"></span>
+
+    <span class="guardian-dot"></span>
+
+</div>
+
 
 <!-- ======================================================
 LIGHTBOX
@@ -802,6 +667,7 @@ LIGHTBOX
     </button>
 
 </div>
+</div>
 
 <!-- ======================================================
 PART 2A ENDS
@@ -813,6 +679,7 @@ COMMUNITY HUB
 
 <section id="community" class="community-section">
 
+    
     <div class="section-heading">
 
         <span class="section-tag">
@@ -858,169 +725,141 @@ COMMUNITY HUB
     ====================================================== -->
 
     <div
-        class="community-panel active"
-        id="tab-announcements">
+    class="community-panel active"
+    id="tab-announcements">
 
-        <div class="announcement-grid">
+    <div class="announcement-carousel">
 
-            <article class="announcement-card">
+        <button
+            class="announcement-arrow"
+            id="announcement-prev">
 
-                <span class="announcement-badge">
+            ❮
 
-                    Latest
+        </button>
 
-                </span>
+        <div class="announcement-slide">
 
-                <h3>
+            <div class="announcement-image">
 
-                    EverMotion Demo Released
-
-                </h3>
-
-                <p>
-
-                    Experience gesture-controlled rehabilitation
-                    through our newest playable prototype featuring
-                    immersive therapy mini-games.
-
-                </p>
-
-                <span class="announcement-date">
-
-                    July 2026
-
-                </span>
-
-            </article>
-
-            <article class="announcement-card">
-
-                <span class="announcement-badge">
-
-                    Development
-
-                </span>
-
-                <h3>
-
-                    Motion Tracking Improved
-
-                </h3>
-
-                <p>
-
-                    Our latest MediaPipe implementation provides
-                    smoother gesture recognition and better
-                    movement accuracy.
-
-                </p>
-
-                <span class="announcement-date">
-
-                    July 2026
-
-                </span>
-
-            </article>
-
-            <article class="announcement-card">
-
-                <span class="announcement-badge">
-
-                    Upcoming
-
-                </span>
-
-                <h3>
-
-                    More Mini Games
-
-                </h3>
-
-                <p>
-
-                    Additional rehabilitation exercises are
-                    currently being designed for future updates.
-
-                </p>
-
-                <span class="announcement-date">
-
-                    Coming Soon
-
-                </span>
-
-            </article>
-
-        </div>
-
-    </div>
-
-    <!-- ======================================================
-    PLAYER FORUM
-    ====================================================== -->
-
-    <div
-        class="community-panel"
-        id="tab-forum"
-        hidden>
-
-        <div class="forum-header">
-
-            <div>
-
-                <h3>
-
-                    Community Feedback
-
-                </h3>
-
-                <p>
-
-                    Feedback is loaded live from our Google Form.
-
-                </p>
+                <img
+                    id="announcement-image"
+                    src="assets/update1.png"
+                    alt="Announcement">
 
             </div>
 
-            <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSe8ISLZuz-QoKunF-zqwLR1Hj8idZHmBBy22VFhAAlar4B-Gg/viewform"
-                target="_blank"
-                class="btn btn-primary">
+            <div class="announcement-content">
 
-                Submit Feedback
+                <span
+                    class="announcement-badge"
+                    id="announcement-type">
 
-            </a>
+                    Latest Update
+
+                </span>
+
+                <h2
+                    id="announcement-title">
+
+                    Version 0.4 Preview
+
+                </h2>
+
+                <p
+                    id="announcement-description">
+
+                    New rehabilitation missions,
+                    improved adaptive AI,
+                    and Guardian enhancements.
+
+                </p>
+
+                <span
+                    class="announcement-date"
+                    id="announcement-date">
+
+                    August 2026
+
+                </span>
+
+            </div>
 
         </div>
 
-        <div id="feedback-feed">
+        <button
+            class="announcement-arrow"
+            id="announcement-next">
 
-          <div class="announcement-card">
+            ❯
 
-            <span class="announcement-badge">
-                Community Feedback
-            </span>
-
-            <h3>Great Rehabilitation Experience</h3>
-
-            <p>
-                "The mini-games made physical therapy much more engaging.
-                I actually looked forward to every session."
-            </p>
-
-            <span class="announcement-date">
-                ★★★★★ • Sarah
-            </span>
-
-          </div>
-
-</div>
+        </button>
 
     </div>
 
-</section>
+</div>
+<!-- ======================================================
+PLAYER FORUM
+====================================================== -->
 
+<div
+    class="community-panel"
+    id="tab-forum">
+
+    <div class="forum-header">
+
+        <div>
+
+            <h3>
+
+                Community Feedback
+
+            </h3>
+
+            <p>
+
+                Read the latest experiences shared by our players.
+
+            </p>
+
+        </div>
+
+        <a
+            href="https://forms.gle/CRXrD1M1pvdfCarg8"
+            target="_blank"
+            class="btn btn-primary">
+
+            Submit Feedback
+
+        </a>
+
+    </div>
+
+    <!-- Live Feedback Container -->
+
+ <div
+    id="feedback-feed"
+    class="announcement-grid">
+
+    <article class="announcement-card">
+
+        <span class="announcement-badge">
+            Loading...
+        </span>
+
+        <h3>Fetching Community Feedback</h3>
+
+        <p>Please wait while we load the latest player feedback.</p>
+
+        <span class="announcement-date">
+            EverMotion
+        </span>
+
+    </article>
+
+</div>
+</div>
+</section>
 <!-- ======================================================
 PROJECT STORY
 
@@ -1143,6 +982,7 @@ PROJECT STORY
 
 ======================================================= -->
 
+<div class="world-lower">
 <!-- ======================================================
 REHABILITATION JOURNEY
 ======================================================= -->
@@ -1610,6 +1450,7 @@ FAQ
 
 </section>
 
+</div>
 <!-- ======================================================
 FOOTER
 ======================================================= -->
@@ -1711,7 +1552,7 @@ FOOTER
 
         <span>
 
-            Built with ❤️ using MediaPipe & OpenCV
+            Built with ❤️ using Unity 
 
         </span>
 
