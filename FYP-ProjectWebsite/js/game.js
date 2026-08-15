@@ -56,6 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initialiseLightbox();
     initialiseCommunityTabs();
+    loadCommunityFeedback();
+    initialiseGuardians();
+    initialiseGameIntro();
 });
 
 /*=========================================================
@@ -394,79 +397,7 @@ function syncMusicUI() {
     }
 
 }
-/*=========================================================
- ANIMATED COUNTERS
-=========================================================*/
 
-const counters = document.querySelectorAll("[data-counter]");
-
-let countersStarted = false;
-
-function initialiseCounters() {
-
-    if (!counters.length) return;
-
-    const observer = new IntersectionObserver((entries) => {
-
-        entries.forEach(entry => {
-
-            if (!entry.isIntersecting) return;
-
-            if (countersStarted) return;
-
-            countersStarted = true;
-
-            animateCounters();
-
-        });
-
-    }, {
-
-        threshold: 0.45
-
-    });
-
-    observer.observe(document.querySelector(".hero"));
-
-}
-
-function animateCounters() {
-
-    counters.forEach(counter => {
-
-        const target = Number(counter.dataset.counter);
-
-        const duration = 1800;
-
-        const start = performance.now();
-
-        function update(time) {
-
-            const progress = Math.min((time - start) / duration, 1);
-
-            const value = Math.floor(progress * target);
-
-            counter.textContent = value.toLocaleString();
-
-            if (progress < 1) {
-
-                requestAnimationFrame(update);
-
-            }
-
-            else {
-
-                counter.textContent = target.toLocaleString();
-
-            }
-
-        }
-
-        requestAnimationFrame(update);
-
-    });
-
-}
 
 /*=========================================================
  REVEAL ON SCROLL
@@ -510,7 +441,7 @@ function initialiseRevealAnimations() {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    initialiseCounters();
+
 
     initialiseRevealAnimations();
 
@@ -1188,32 +1119,25 @@ function initialiseCommunityTabs() {
 
             communityTabs.forEach(button => {
 
-                const isActive =
-                    button === tab;
+                const active = button === tab;
 
-                button.classList.toggle(
-                    "active",
-                    isActive
-                );
+                button.classList.toggle("active", active);
 
                 button.setAttribute(
                     "aria-selected",
-                    isActive ? "true" : "false"
+                    active ? "true" : "false"
                 );
 
             });
 
             communityPanels.forEach(panel => {
 
-                const isActive =
+                const active =
                     panel.id === `tab-${selectedTab}`;
 
-                panel.classList.toggle(
-                    "active",
-                    isActive
-                );
+                panel.classList.toggle("active", active);
 
-                panel.hidden = !isActive;
+                panel.hidden = !active;
 
             });
 
@@ -1260,3 +1184,462 @@ document.addEventListener("click", function (event) {
     }
 
 });
+
+/* =========================================================
+   LIVE COMMUNITY FEEDBACK
+========================================================= */
+
+const FEEDBACK_API =
+    "https://script.google.com/macros/s/AKfycby8lcHCq1FM20J7PZQ7zHC9ojNNaSGy222iN_TGv6eHzRN_veVInKm_nxdkQVZhcXe8/exec";
+
+console.log("loadCommunityFeedback called");
+
+async function loadCommunityFeedback() {
+
+    const container = document.getElementById("feedback-feed");
+
+    if (!container) return;
+
+    try {
+
+        console.log("Fetching feedback...");
+
+        const response = await fetch(FEEDBACK_API);
+
+        console.log("Status:", response.status);
+
+        const text = await response.text();
+
+        console.log("Raw response:", text);
+
+        const feedback = JSON.parse(text);
+
+        console.log("Parsed:", feedback);
+
+        container.innerHTML = "";
+
+        feedback.reverse().forEach(item => {
+            console.log(container.innerHTML);
+
+            const stars =
+                "★".repeat(Number(item.rating)) +
+                "☆".repeat(5 - Number(item.rating));
+
+            container.innerHTML += `
+                <article class="announcement-card">
+
+                    <span class="announcement-badge">
+                        Community Feedback
+                    </span>
+
+                    <p>"${item.feedback}"</p>
+
+                    <span class="announcement-date">
+                        ${stars} • ${item.name}
+                    </span>
+
+                </article>
+            `;
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.error("ERROR:", error);
+
+        container.innerHTML = `
+            <article class="announcement-card">
+
+                <span class="announcement-badge">
+                    Error
+                </span>
+
+                <h3>${error.message}</h3>
+
+            </article>
+        `;
+
+    }
+
+}
+
+/* =========================================================
+   GUARDIANS
+========================================================= */
+
+const guardians = [
+
+{
+
+    name: "AEGIS",
+
+    role: "Lead Rehabilitation Guardian",
+
+    story:
+        "Aegis guides every player through difficult rehabilitation challenges. His adaptive AI analyses movement and tailors every mission to each patient's progress, reminding players that consistency is stronger than perfection.",
+
+    quote:
+        'One movement today becomes strength tomorrow.',
+
+    image:
+        "assets/aegis.png"
+
+},
+
+{
+
+    name: "LYRA",
+
+    role: "Adaptive Therapy Companion",
+
+    story:
+        "Lyra brings warmth and optimism to every rehabilitation session. She celebrates every milestone, encouraging patients to rediscover confidence while restoring the fading Lumina Core.",
+
+    quote:
+        'Every journey begins with believing you can.',
+
+    image:
+        "assets/lyra.png"
+
+}
+
+];
+
+
+
+let currentGuardian = 0;
+let isChanging = false;
+
+function initialiseGuardians() {
+
+    const guardianCard = document.querySelector(".guardian-card");
+
+    const guardianImage = document.getElementById("guardian-image");
+    const guardianName = document.getElementById("guardian-name");
+    const guardianRole = document.getElementById("guardian-role");
+    const guardianStory = document.getElementById("guardian-story");
+    const guardianQuote = document.getElementById("guardian-quote");
+
+    function showGuardian(index){
+
+        const guardian = guardians[index];
+
+        guardianImage.src = guardian.image;
+        guardianName.textContent = guardian.name;
+        guardianRole.textContent = guardian.role;
+        guardianStory.textContent = guardian.story;
+        guardianQuote.textContent = guardian.quote;
+
+    }
+
+    function changeGuardian(index){
+
+        if(isChanging) return;
+
+        isChanging = true;
+
+        guardianCard.classList.add("changing");
+
+        setTimeout(()=>{
+
+            showGuardian(index);
+
+            guardianCard.classList.remove("changing");
+
+            isChanging = false;
+
+        },250);
+
+    }
+
+    document.getElementById("guardian-next").addEventListener("click",()=>{
+
+        currentGuardian =
+            (currentGuardian + 1) % guardians.length;
+
+        changeGuardian(currentGuardian);
+
+    });
+    document.getElementById("guardian-next").addEventListener("click", () => {
+
+    console.log("Next clicked");
+
+});
+
+    document.getElementById("guardian-prev").addEventListener("click",()=>{
+
+        currentGuardian--;
+
+        if(currentGuardian < 0){
+
+            currentGuardian = guardians.length-1;
+
+        }
+
+        changeGuardian(currentGuardian);
+
+    });
+
+    showGuardian(0);
+
+}
+
+
+/* =========================================================
+   STORY ANIMATION
+========================================================= */
+
+const storySection =
+    document.querySelector(".reveal-story");
+
+const storyObserver =
+    new IntersectionObserver(entries=>{
+
+        entries.forEach(entry=>{
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("active");
+
+            }
+
+        });
+
+    },{
+
+        threshold:0.3
+
+    });
+
+storyObserver.observe(storySection);
+
+
+
+
+const announcements = [
+
+{
+
+    type:"Latest Update",
+
+    title:"Version 0.4 Preview",
+
+    description:
+        "Experience new rehabilitation missions, smoother gesture tracking and a completely redesigned system.",
+
+    date:"August 2026",
+
+    image:"assets/update1.png"
+
+},
+
+{
+
+    type:"Development",
+
+    title:"Robot Expansion",
+
+    description:
+        "Meet Aegis and Lyra as they guide patients through the restoration journey.",
+
+    date:"Coming Soon",
+
+    image:"assets/update2.png"
+
+},
+
+{
+
+    type:"Upcoming",
+
+    title:"Story Chapter Two",
+
+    description:
+        "Continue restoring the City through new therapy missions and adaptive challenges.",
+
+    date:"Future Update",
+
+    image:"assets/update3.png"
+
+}
+
+];
+
+
+
+/* =========================================================
+   GAME START INTRO
+========================================================= */
+
+function initialiseGameIntro(){
+
+    const intro =
+        document.getElementById("game-intro");
+
+    const startButton =
+        document.getElementById("start-game");
+
+    const video =
+        document.getElementById("intro-video");
+
+    if(!intro || !startButton) return;
+
+
+    /* Make sure video attempts to play */
+
+    if(video){
+
+        video.play().catch(()=>{
+
+            console.log(
+                "Intro video requires user interaction."
+            );
+
+        });
+
+    }
+
+
+    /* START GAME */
+
+    startButton.addEventListener("click",()=>{
+
+        intro.classList.add("intro-hidden");
+
+        document.body.classList.remove("intro-active");
+
+        /* Stop video after transition */
+
+        setTimeout(()=>{
+
+            if(video){
+
+                video.pause();
+
+            }
+
+            intro.remove();
+
+        },1000);
+
+    });
+
+}
+
+
+let currentAnnouncement = 0;
+let isAnnouncementChanging = false;
+
+
+/* =========================================================
+   SHOW ANNOUNCEMENT
+========================================================= */
+
+function showAnnouncement(index){
+
+    const item = announcements[index];
+
+    document.getElementById("announcement-image").src =
+        item.image;
+
+    document.getElementById("announcement-type").textContent =
+        item.type;
+
+    document.getElementById("announcement-title").textContent =
+        item.title;
+
+    document.getElementById("announcement-description").textContent =
+        item.description;
+
+    document.getElementById("announcement-date").textContent =
+        item.date;
+
+}
+
+
+/* =========================================================
+   CHANGE ANNOUNCEMENT
+========================================================= */
+
+function changeAnnouncement(index){
+
+    if(isAnnouncementChanging) return;
+
+    isAnnouncementChanging = true;
+
+    const slide =
+        document.querySelector(".announcement-slide");
+
+    if(!slide){
+
+        showAnnouncement(index);
+
+        isAnnouncementChanging = false;
+
+        return;
+
+    }
+
+    slide.classList.add("changing");
+
+    setTimeout(()=>{
+
+        showAnnouncement(index);
+
+        slide.classList.remove("changing");
+
+        isAnnouncementChanging = false;
+
+    },250);
+
+}
+
+
+/* =========================================================
+   NEXT ANNOUNCEMENT
+========================================================= */
+
+document.getElementById("announcement-next")
+.addEventListener("click",()=>{
+
+    currentAnnouncement++;
+
+    if(currentAnnouncement >= announcements.length){
+
+        currentAnnouncement = 0;
+
+    }
+
+    changeAnnouncement(currentAnnouncement);
+
+});
+
+
+/* =========================================================
+   PREVIOUS ANNOUNCEMENT
+========================================================= */
+
+document.getElementById("announcement-prev")
+.addEventListener("click",()=>{
+
+    currentAnnouncement--;
+
+    if(currentAnnouncement < 0){
+
+        currentAnnouncement =
+            announcements.length - 1;
+
+    }
+
+    changeAnnouncement(currentAnnouncement);
+
+});
+
+
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
+
+showAnnouncement(0);
