@@ -1473,6 +1473,27 @@ img { display: block; max-width: 100%; }
 .meeting-content .session:nth-child(20)::after { content: "12 Jun 2026"; }
 .meeting-content .session:nth-child(21)::after { content: "13 Jun 2026"; }
 .meeting-content .session:nth-child(22)::after { content: "24 Jun 2026"; }
+.meeting-content .session:nth-child(23)::after { content: "06 Jul 2026"; }
+.meeting-content .session:nth-child(24)::after { content: "09 Jul 2026"; }
+.meeting-content .session:nth-child(25)::after { content: "10 Jul 2026"; }
+.meeting-content .session:nth-child(26)::after { content: "13 Jul 2026"; }
+.meeting-content .session:nth-child(27)::after { content: "14 Jul 2026"; }
+.meeting-content .session:nth-child(28)::after { content: "16 Jul 2026"; }
+.meeting-content .session:nth-child(29)::after { content: "17 Jul 2026"; }
+.meeting-content .session:nth-child(30)::after { content: "21 Jul 2026"; }
+.meeting-content .session:nth-child(31)::after { content: "22 Jul 2026"; }
+.meeting-content .session:nth-child(32)::after { content: "23 Jul 2026"; }
+.meeting-content .session:nth-child(33)::after { content: "24 Jul 2026"; }
+.meeting-content .session:nth-child(34)::after { content: "27 Jul 2026"; }
+.meeting-content .session:nth-child(35)::after { content: "30 Jul 2026"; }
+.meeting-content .session:nth-child(36)::after { content: "03 Aug 2026"; }
+.meeting-content .session:nth-child(37)::after { content: "05 Aug 2026"; }
+.meeting-content .session:nth-child(38)::after { content: "06 Aug 2026"; }
+.meeting-content .session:nth-child(39)::after { content: "07 Aug 2026"; }
+.meeting-content .session:nth-child(40)::after { content: "11 Aug 2026"; }
+.meeting-content .session:nth-child(41)::after { content: "12 Aug 2026"; }
+.meeting-content .session:nth-child(42)::after { content: "14 Aug 2026"; }
+.meeting-content .session:nth-child(43)::after { content: "15 Aug 2026"; }
 
 .session h3{
   display: flex;
@@ -1591,7 +1612,7 @@ img { display: block; max-width: 100%; }
   color: var(--accent);
 }
 
-@media (max-wdith: 980px)
+@media (max-width: 980px)
 {
   .meeting-content{
     grid-template-columns: 1fr;
