@@ -65,10 +65,10 @@
               Project <span class="mega-caret" aria-hidden="true">&#9662;</span>
             </button>
             <div class="mega-menu" role="menu" aria-label="Project navigation">
+              <a href="#trailer" role="menuitem">Marketing Video</a>
               <a href="#about" role="menuitem">About</a>
               <a href="#features" role="menuitem">Features</a>
               <a href="#tech" role="menuitem">Tech Stack</a>
-              <a href="#progress" role="menuitem">Progress</a>
               <a href="document.html" role="menuitem">Administrative Documents</a>
               <a href="#team" role="menuitem">Team</a>
               <a href="#media" role="menuitem">Media</a>
@@ -82,25 +82,18 @@
     </div>
   </nav>
 
-  <!-- ===== HERO (Video Placeholder â€” replace cinema-bg with <video> when ready) ===== -->
+  <!-- ===== HERO ===== -->
   <section class="hero video-hero" id="home">
     <div class="hero-cinema-bg">
-      <!--
-        TO ADD MARKETING VIDEO: remove this comment block and replace the cinema-bg div with:
-        <video class="hero-video" autoplay muted loop playsinline>
-          <source src="assets/video/hero.mp4" type="video/mp4">
-        </video>
-      -->
       <div class="cinema-grid"></div>
       <div class="cinema-orb cinema-orb-1"></div>
       <div class="cinema-orb cinema-orb-2"></div>
       <div class="cinema-vignette"></div>
     </div>
-    <div class="hero-video-badge">
+    <a href="#trailer" class="hero-video-badge">
       <span class="hvb-dot"></span>
-      <span>Marketing Video</span>
-      <span class="hvb-pill">Coming Soon</span>
-    </div>
+      <span>Watch Marketing Video</span>
+    </a>
     <div class="hero-content">
       <div class="hero-badge">FYP-26-S2-3 &bull; Team EchoCare</div>
       <h1 class="hero-title">
@@ -122,6 +115,22 @@
     <div class="hero-scroll-hint">
       <span>Scroll to explore</span>
       <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ===== MARKETING VIDEO ===== -->
+  <section class="section" id="trailer">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Watch</span>
+        <h2>See EverMotion in Action</h2>
+        <p class="section-sub">A short look at how motion tracking turns rehab exercises into a game.</p>
+      </div>
+      <div class="trailer-player">
+        <video class="trailer-video" controls preload="metadata">
+          <source src="assets/video/EverMotion_MarketingVideo.mp4" type="video/mp4">
+        </video>
+      </div>
     </div>
   </section>
 
@@ -183,7 +192,7 @@
                   <span class="carousel-focus">Upper Limb &middot; Steady Hold</span>
                   <h3 class="carousel-name">Energy Flow Stabilisation</h3>
                   <p class="carousel-mission">&ldquo;Stabilise Power Flow&rdquo;</p>
-                  <p class="carousel-desc">Bring your hands together at your chest to begin an energy transfer, holding steady while the safety needle swings through the green and yellow zones. Let it drift into red and the transfer fails — release and reset before starting the next one.</p>
+                  <p class="carousel-desc">Fly your robot through gaps in scrolling obstacle plating and grab glowing energy cells to keep the power flowing. Raise both arms out to your sides (T-pose) to climb, lower them to descend — weave through each gap as it shifts, and rest between waves to recover.</p>
                   <span class="carousel-counter">03 / 12</span>
                 </div>
               </div>
@@ -513,77 +522,6 @@
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- ===== PROGRESS ===== -->
-  <section class="section section-alt" id="progress">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Progress</span>
-        <h2>Where We Are Now</h2>
-      </div>
-
-      <div class="progress-stage">
-        <div class="stage-label">Current Stage</div>
-        <div class="stage-value">Core Development</div>
-        <div class="stage-bar-wrap">
-          <div class="stage-bar" style="--pct: 85%"></div>
-        </div>
-        <div class="stage-markers">
-          <span class="marker active">Research</span>
-          <span class="marker active">Architecture</span>
-          <span class="marker active">Prototype</span>
-          <span class="marker active">Core Dev</span>
-          <span class="marker">Testing</span>
-          <span class="marker">Final</span>
-        </div>
-      </div>
-
-      <div class="progress-columns">
-        <div class="progress-col">
-          <div class="progress-col-header done-header">
-            <span class="col-dot done-dot"></span> Completed
-          </div>
-          <ul class="progress-list">
-            <li>Research on MediaPipe and hand tracking</li>
-            <li>System architecture design</li>
-            <li>Planning of twelve proposed rehabilitation games</li>
-            <li>Integration of hand tracking with game via UDP</li>
-            <li>Initial research engagement with Foo Hai Rehabilitation Centre</li>
-            <li>Designing the gaming environment</li>
-            <li>Designing male and female characters</li>
-            <li>Designing the game UI</li>
-            <li>Project Requirements Documentation</li>
-            <li>Preliminatary Documentations Submission (User Manual & Technical Documentation)</li>
-            <li>Game logic completed for all twelve rehabilitation games</li>
-          </ul>
-        </div>
-        <div class="progress-col">
-          <div class="progress-col-header wip-header">
-            <span class="col-dot wip-dot"></span> In Progress
-          </div>
-          <ul class="progress-list">
-            <li>Unity Development</li>
-            <li>Integrating of scenes together </li>
-            <li>Testing and Debugging</li>
-          </ul>
-        </div>
-        <div class="progress-col">
-          <div class="progress-col-header next-header">
-            <span class="col-dot next-dot"></span> Next Steps
-          </div>
-          <ul class="progress-list">
-            <li>Documentations (Technical Documentation & User Manual) for Submission 2</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div style="text-align: center; margin-top: 2rem;">
-    <span class="section-tag">
-      <p>Click below to see administrative documents</p>
-      <a style="text-decoration: underline;" href="document.html">Administrative Documents</a>
-    </span>
-  </div>
   </section>
 
   <!-- ===== TEAM ===== -->

@@ -452,6 +452,373 @@
           </section>
         </div>
       </article>
+
+      <article class="diary-week">
+        <header class="diary-week-header">
+          <div>
+            <span class="diary-week-label">Week 10</span>
+            <h2>14 June 2026 - 20 June 2026</h2>
+          </div>
+          <span class="diary-week-tag">Sky Reach Protocol</span>
+        </header>
+
+        <div class="diary-section-grid">
+          <section class="diary-block">
+            <h3>Objectives Achieved</h3>
+            <ul>
+              <li>Developed the first game, "Sky Reach Protocol" — kept simple but fully playable, and learned to create game objects with images and sprites.</li>
+              <li>Sourced images online or generated them with ChatGPT through prompting.</li>
+              <li>Established a repeatable sprite workflow: generated assets on solid black backgrounds, then processed them with Python (PIL and NumPy) to extract transparency, as generating on white backgrounds made background removal unreliable.</li>
+              <li>Implemented Python's MediaPipe to allow other game developers to reuse it, as it has clearer landmarks for debugging the game logic and landmark trigger conditions.</li>
+              <li>Connected the external Python process to Unity through preset UDP ports.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block">
+            <h3>Setbacks Faced</h3>
+            <ul>
+              <li>Progress was slow as I am not a gaming major student, so picking up Unity knowledge dragged the overall progress.</li>
+              <li>Workaround: Asked my game major friend whenever I got stuck.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block diary-block-wide">
+            <h3>Reflection</h3>
+            <ul>
+              <li>Decided to start learning Unity to be able to create games for the project and better understand the product we are going to deliver.</li>
+              <li>It was not easy for a non-game major student — I had to learn from scratch through online tutorials and AI guidance.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="diary-week">
+        <header class="diary-week-header">
+          <div>
+            <span class="diary-week-label">Week 11</span>
+            <h2>21 June 2026 - 27 June 2026</h2>
+          </div>
+          <span class="diary-week-tag">Signal Sync System</span>
+        </header>
+
+        <div class="diary-section-grid">
+          <section class="diary-block">
+            <h3>Objectives Achieved</h3>
+            <ul>
+              <li>Developed the game "Signal Sync System", using the knowledge learned from developing Sky Reach Protocol (Game 1) to build this more advanced rhythm game.</li>
+              <li>This game targets finger precision under timing pressure, a different rehabilitation focus compared to the shoulder movement in Sky Reach Protocol.</li>
+              <li>Learned to create in-game animations by looping through multiple sprites.</li>
+              <li>Explored how Unity can manage idle movement and glow effects without needing the developer to generate multiple sprites to loop through.</li>
+              <li>Learned to create sound effects and background music with Suno, generating background music through prompting.</li>
+              <li>Adopted jsfxr (sfxr.me) for short sound effects and exported them as WAV.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block">
+            <h3>Setbacks Faced</h3>
+            <ul>
+              <li>Development progress was still slow — the 2nd game took 4 days to reach its 1st version.</li>
+              <li>Workaround: Took it as a learning process, knowing things would get faster with practice, and shared progress with game major friends for useful tips.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block diary-block-wide">
+            <h3>Reflection</h3>
+            <ul>
+              <li>Another week of plenty of concentrated learning, as most teammates returned from the 1-week break Gavin gave after the mid-point presentation.</li>
+              <li>Held meetings and gathered to work together to facilitate efficient communication between teammates, especially on game development.</li>
+              <li>Shared the refined version of Sky Reach Protocol and the first version of Signal Sync Response with the team.</li>
+              <li>Splitting the audio work between Suno for music and jsfxr for effects was a small decision, but it removed a lot of trial and error for the games that came after.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="diary-week">
+        <header class="diary-week-header">
+          <div>
+            <span class="diary-week-label">Week 12</span>
+            <h2>28 June 2026 - 4 July 2026</h2>
+          </div>
+          <span class="diary-week-tag">Core Stability Protocol</span>
+        </header>
+
+        <div class="diary-section-grid">
+          <section class="diary-block">
+            <h3>Objectives Achieved</h3>
+            <ul>
+              <li>Shared Game 1's first version with 3 teammates — Gavin, Joshua, and Jun Hui — and gathered their feedback for further improvement.</li>
+              <li>Their feedback was useful for identifying issues from a user's point of view, such as gestures unclear to a first-time player, since I was too familiar with my own game design.</li>
+              <li>Developed Core Stability Protocol, brainstorming the game concept and discussing feasibility with Claude before starting implementation.</li>
+              <li>Learned Unity's 2D collider concept for this game.</li>
+              <li>Defined the core design rules for all 12 games: no failure state, to avoid discouraging elderly players, and a colour language used to design the game.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block">
+            <h3>Setbacks Faced</h3>
+            <ul>
+              <li>Collider boundaries did not match the visible sprite, causing inconsistent hit detection.</li>
+              <li>This took a long time to fix, but I learned how to adjust the sprite to the collider boundary in the Scene tab by selecting the game object in the Hierarchy.</li>
+              <li>Workaround: Adjusted the collider dimensions independently from the sprite bounds and verified the result using collider visualisation in the Scene view.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block diary-block-wide">
+            <h3>Reflection</h3>
+            <ul>
+              <li>A slow week for FYP progress, as everyone was fully occupied with lectures throughout the week. The team decided not to meet up in school and to work at our own pace.</li>
+              <li>Continued developing my 3rd game for EverMotion during this week so I could show the team and gather feedback.</li>
+              <li>Decided to move the tunable values into the Inspector to save time on tuning the game parameters.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="diary-week">
+        <header class="diary-week-header">
+          <div>
+            <span class="diary-week-label">Week 13</span>
+            <h2>5 July 2026 - 11 July 2026</h2>
+          </div>
+          <span class="diary-week-tag">Cross-Platform Fixes</span>
+        </header>
+
+        <div class="diary-section-grid">
+          <section class="diary-block">
+            <h3>Objectives Achieved</h3>
+            <ul>
+              <li>Fixed the Windows/Mac incompatibility in the games developed by Zheng Xiao, including Game 2 Lateral Circuit Recovery, Game 3 Energy Flow Stabilization, Game 7 Rotation Node Activation, and Game 10 Micro Node Activation.</li>
+              <li>Continued to refine and improve the games according to teammate feedback, including visual refinement and game logic tuning.</li>
+              <li>Adjusted gesture trigger thresholds that were too strict for slower movements — e.g. added a buffer zone so an action like lifting the elbow above the shoulder triggers as long as the elbow's y-coordinate is within &plusmn;0.15 of the shoulder's y-coordinate.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block">
+            <h3>Setbacks Faced</h3>
+            <ul>
+              <li>The game developed by Zheng Xiao was not runnable on a Windows laptop.</li>
+              <li>Workaround: Decided to solve the incompatibility issue first before redoing the game he had already developed.</li>
+              <li>Checked the fix into Unity Version Control so other teammates could test it on their laptops — the incompatibility issue was successfully resolved.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block diary-block-wide">
+            <h3>Reflection</h3>
+            <ul>
+              <li>The week started with the team finding out that the games developed by Zheng Xiao were not working on our Windows laptops. I took the initiative to find the cause of the incompatibility before we spent time redoing the games.</li>
+              <li>Also showed the team Core Stability Protocol (my 3rd game) to gather feedback, such as including the robot avatar to reflect the player's actions.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="diary-week">
+        <header class="diary-week-header">
+          <div>
+            <span class="diary-week-label">Week 14</span>
+            <h2>12 July 2026 - 18 July 2026</h2>
+          </div>
+          <span class="diary-week-tag">UVC Reorganization</span>
+        </header>
+
+        <div class="diary-section-grid">
+          <section class="diary-block">
+            <h3>Objectives Achieved</h3>
+            <ul>
+              <li>Reorganized the UVC workspace with the team, as the folders were too messy and made it hard to locate files — discussed what to put in each folder and checked in the updated workspace.</li>
+              <li>Discussed the tutorial screen shown before each game — decided to include a game demo played by us, instructions on how to play, and buttons letting the player choose whether to go through tutorial mode before starting.</li>
+              <li>Refined the half-done Game 2 and Game 3 from Zheng Xiao, as he became uncontactable — fixed the incompatibility for both Windows and Mac, and refined the game logic and visual effects with more sprites and animations.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block">
+            <h3>Setbacks Faced</h3>
+            <ul>
+              <li>A scene disappeared while trying to replace the completed scene with a placeholder scene.</li>
+              <li>Workaround: Rebuilt the scene with the existing assets. Lesson learned: always check in scene files before performing any file reorganisation, and verify the Hierarchy contents after each step instead of moving, deleting, and renaming in one go.</li>
+              <li>Zheng Xiao remained uncontactable while two of his games were still incomplete.</li>
+              <li>Workaround: Took over Game 2 and Game 3 directly and informed Gavin so the reassignment was documented for the team.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block diary-block-wide">
+            <h3>Reflection</h3>
+            <ul>
+              <li>The Unity repository was messy since everyone was new to Unity and created folders as needed for their own work, making it hard to locate resources created by others — so the team reorganized the UVC workspace and discussed the structure of the tutorial scene by drawing it out on the iPad.</li>
+              <li>Gavin then had me continue Zheng Xiao's half-done work, as he had already been uncontactable for 2 weeks.</li>
+              <li>The game scene I had worked on for a few hours disappeared while renaming it and could not be undone, since I had not checked it into UVC. Lesson learned from this incident: always check in after every change.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="diary-week">
+        <header class="diary-week-header">
+          <div>
+            <span class="diary-week-label">Week 15</span>
+            <h2>19 July 2026 - 25 July 2026</h2>
+          </div>
+          <span class="diary-week-tag">MediaPipe C# Migration</span>
+        </header>
+
+        <div class="diary-section-grid">
+          <section class="diary-block">
+            <h3>Objectives Achieved</h3>
+            <ul>
+              <li>Changed MediaPipe from Python to C#, since C# works with Unity better — Python ran as an external process outside Unity, connected to Unity through UDP ports.</li>
+              <li>Added a pause panel into each game and defined gestures to call it during gameplay: a "thumbs down" gesture for MediaPipe Hands games, and a "T-pose" gesture for MediaPipe Pose games, both chosen because they are unlikely to happen accidentally during normal gameplay.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block">
+            <h3>Setbacks Faced</h3>
+            <ul>
+              <li>The Python MediaPipe did not work when we tried to export the game as an .exe.</li>
+              <li>Workaround: Found that the Python MediaPipe was an external process running outside Unity, so decided to switch MediaPipe from Python to C# so it could run inside Unity natively.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block diary-block-wide">
+            <h3>Reflection</h3>
+            <ul>
+              <li>Found an issue when testing the game exported from Unity — the Python MediaPipe we were using did not work after export. To fix this, I quickly changed the MediaPipe pipeline to a Unity plugin taken from GitHub, which works well after export.</li>
+              <li>This was a serious problem because a downloadable desktop application is the whole delivery format for EverMotion, and a rehabilitation tool that only runs on a developer machine would be of no use in a nursing home.</li>
+              <li>Also worked with Joshua on implementing the pause panel, as he is good at creating in-game UI, and letting the person who knows how to do it handle it makes everything more efficient instead of making everyone learn everything.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="diary-week">
+        <header class="diary-week-header">
+          <div>
+            <span class="diary-week-label">Week 16</span>
+            <h2>26 July 2026 - 1 August 2026</h2>
+          </div>
+          <span class="diary-week-tag">Game 12 &amp; Team Alignment</span>
+        </header>
+
+        <div class="diary-section-grid">
+          <section class="diary-block">
+            <h3>Objectives Achieved</h3>
+            <ul>
+              <li>Refined Game 4 &amp; Game 6 done by Jun Hui, changing some gestures to make the gameplay more user friendly to understand.</li>
+              <li>Developed Game 12, handed over from Gavin — decided to design it using a vertical scrolling shooter concept, letting the player practice pointing in 4 different directions to train finger precision while keeping the gesture simple.</li>
+              <li>Addressed the uneven contribution issue with team leader Gavin, Joshua, and Jun Hui — had individual conversations with each of them so they could express honest views without worrying about offending anyone, and reached an agreement on how contribution would be graded in the final peer assessment form.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block">
+            <h3>Setbacks Faced</h3>
+            <ul>
+              <li>Team members disagreed with giving Channelle the contribution index she requested in order to pass.</li>
+              <li>Workaround: After discussion with the team, decided to give the contribution index based on what she contributed over the last 3 weeks.</li>
+              <li>Zheng Xiao did not use AI responsibly, assigning tasks to a coding agent and letting it check the changes into Unity Version Control (UVC) without review.</li>
+              <li>Workaround: Tried to revert the changes he made manually, but found it inefficient, so decided to revert the version back to before he started work. The team also decided to restrict Zheng Xiao from merging his changes into the main branch before being reviewed by us.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block diary-block-wide">
+            <h3>Reflection</h3>
+            <ul>
+              <li>An intense week, as we had 3 more weeks to final submission and progress was still much behind the timeline due to two members contributing very little and the team's lack of game development background.</li>
+              <li>Gavin also handed over the game he had been trying for 2 weeks but was still unable to develop properly.</li>
+              <li>When Zheng Xiao came back to work with the team, he did not communicate properly before authorizing AI to do the work, which caused a lot of trouble and required time to fix the issue.</li>
+              <li>Kept reminding him to check the output of AI before publishing it to the Unity Repository, as it affects the other 4 members' Unity projects while they are doing their own work.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="diary-week">
+        <header class="diary-week-header">
+          <div>
+            <span class="diary-week-label">Week 17</span>
+            <h2>2 August 2026 - 8 August 2026</h2>
+          </div>
+          <span class="diary-week-tag">Scene Integration</span>
+        </header>
+
+        <div class="diary-section-grid">
+          <section class="diary-block">
+            <h3>Objectives Achieved</h3>
+            <ul>
+              <li>Implemented difficulty levels for games that were accidentally skipped during earlier development, needed for Free Play mode, with parameters tunable in the Unity inspector without changing code.</li>
+              <li>Added background music to games that had been accidentally skipped during development.</li>
+              <li>Worked with Joshua and Jun Hui to wire all the implemented scenes together, since the team had been building different scenes independently and needed to write the scripts to connect them up.</li>
+              <li>Redid Game 2, which had been overwritten by Zheng Xiao with a worse version — after discussing with the team, decided to use my game idea instead and redesigned it around a slicing concept.</li>
+              <li>Implemented tutorial mode for each game, letting the player experience the game without a time constraint, with the exit condition being 5 successful target hits.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block">
+            <h3>Setbacks Faced</h3>
+            <ul>
+              <li>Wiring the scenes up revealed a lot of issues, as everyone had been designing their scenes to make the functionality work without worrying about compatibility with other scenes.</li>
+              <li>Workaround: Decided to meet up with Jun Hui and Joshua in school to discuss whenever conflicts came up while wiring up the scenes.</li>
+              <li>The Game 2 I redeveloped was overwritten again by Zheng Xiao when he checked in his changes, dragging progress down further due to the need to redo the game.</li>
+              <li>Workaround: Requested Gavin's help with some of the tasks originally assigned to me.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block diary-block-wide">
+            <h3>Reflection</h3>
+            <ul>
+              <li>With submission the following week, the team was busy connecting the scenes built over the 16 weeks. Plenty of discussion was expected, as every member had been working independently on the tasks assigned to them.</li>
+              <li>A satisfying phase to see what we had built over the weeks coming together into the final product.</li>
+              <li>The team also met supervisor Mr Tian for the last consultation on the documentation and the product before final submission and final presentation, who provided useful tips for presenting our final product.</li>
+              <li>Having to redo Game 2 a second time was discouraging, but the slicing redesign is a better fit for shoulder rehabilitation than the original version, so the rework was not wasted.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="diary-week">
+        <header class="diary-week-header">
+          <div>
+            <span class="diary-week-label">Week 18</span>
+            <h2>9 August 2026 - 15 August 2026</h2>
+          </div>
+          <span class="diary-week-tag">Final Submission &amp; Site Visit</span>
+        </header>
+
+        <div class="diary-section-grid">
+          <section class="diary-block">
+            <h3>Objectives Achieved</h3>
+            <ul>
+              <li>Debugged the application exported from Unity, as some features that worked in the Unity Editor did not work after export — a much longer process, since every fix required re-exporting the Unity build to check again.</li>
+              <li>Did a final check across each game before building (exporting) the final product — Gavin, myself, Jun Hui, and Joshua replayed each game to ensure everyone was satisfied, confirming difficulty, BGM, sound effects, robot avatar, and game logic were implemented as planned.</li>
+              <li>Visited Foo Hai Rehabilitation Centre at Jurong East, gathering professional feedback from the therapists and centre manager on-site, and let 5 elderly residents try some of our games, giving the team its first observation of real end users interacting with EverMotion.</li>
+              <li>Made urgent patches to Game 3 after the team felt it was still not good enough, at their request to improve its gameplay logic.</li>
+              <li>Updated the Preliminary Technical Document for the Week 19 submission to reflect the changes made since the midpoint, including the migration from Python to C# MediaPipe and the redesigned Game 2 mechanic.</li>
+              <li>Submitted all the work done over the past 19 weeks onto Moodle with Joshua, Jun Hui, and Gavin on campus.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block">
+            <h3>Setbacks Faced</h3>
+            <ul>
+              <li>Revealed a lot of minor issues overlooked by the developers and myself, such as missing sound effects, UI mismatches with the expected screen ratio, and game logic scripts affecting other games due to naming mismatches.</li>
+              <li>Workaround: Cross-checked with each game's developer to confirm the intended design before fixing it.</li>
+              <li>MediaPipe implementation broke when working across multiple scenes, due to the nature of Unity destroying every game object of the previous scene before proceeding to the next.</li>
+            </ul>
+          </section>
+
+          <section class="diary-block diary-block-wide">
+            <h3>Reflection</h3>
+            <ul>
+              <li>This final week combined technical debugging with something the project had not had until now: watching real elderly users play the games.</li>
+              <li>Visiting Foo Hai Rehabilitation Centre made the abstractions we had been designing around — motor impairment levels, no-failure-state, hand calibration — concrete, as we could see directly which gestures the residents found intuitive and which ones needed more guidance than a first-time tutorial screen could give.</li>
+              <li>The therapists' and centre manager's feedback carried more weight than anything we could have guessed at from our own testing, since none of us have their clinical experience with this population.</li>
+              <li>On the technical side, the export debugging cycle was draining, as a bug that took seconds to confirm inside the Editor could take several minutes to confirm after export, so every fix cost far more time than it would have earlier in the project.</li>
+              <li>The MediaPipe cross-scene issue was a similar story to the Week 09 prefab fix, and fixing it with a persistent singleton reinforced how much of this project's stability came down to understanding Unity's object lifecycle rather than the tracking logic itself.</li>
+              <li>Being asked to patch Game 3 again at this stage was frustrating, but it reflected the team holding a standard for the final submission rather than the earlier work being wasted.</li>
+              <li>Looking back over the whole project, most of the time lost was not on genuinely difficult problems but on avoidable ones — a scene lost because it was not checked in, a tracking pipeline that could not be exported, a MediaPipe instance that kept getting destroyed on scene load. That is the main lesson I am taking away: process matters as much as product, and this week's visit to Foo Hai was a reminder of who the process is ultimately for.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
     </section>
     </section>
 
